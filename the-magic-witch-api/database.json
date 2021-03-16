@@ -1,79 +1,11 @@
 {
-    "user": [
+    "users": [
         {
         "id": 1,
         "name": "Erica",
-        "email": "erica@dot.com"}
-    ],
-    "horoscope": [
-        {
-        "id": 1,
-        "sign": "pisces"
-    },
-    {
-        "id": 2,
-        "sign": "aries"
-    },
-    {
-        "id": 3,
-        "sign": "taurus"
-    },
-    {
-        "id": 4,
-        "sign": "gemini"
-    },
-    {
-        "id": 5,
-        "sign": "cancer"
-    },
-    {
-        "id": 6,
-        "sign": "leo"
-    },
-    {
-        "id": 7,
-        "sign": "virgo"
-    },
-    {
-        "id": 8,
-        "sign": "libra"
-    },
-    {
-        "id": 9,
-        "sign": "scorpio"
-    },
-    {
-        "id": 10,
-        "sign": "sagittarius"
-    },
-    {
-        "id": 11,
-        "sign": "capricorn"
+        "email": "erica@dot.com",
+        "password": "ILovePecanPie"
     }
-    ],
-    "horoscopeComments": [
-        {
-            "id": 1,
-        "userId": 1,
-        "horoscopeComment": "nervous",
-        "horoscopeReadingId": 1
-     }
-    ],
-    "horoscopeText": [
-    {
-        "sign": "sagittarius",
-        "date": "2021-03-15",
-        "horoscope": "Its hard to focus on productive efforts when all you want is to let loose, Sagittarius. You may find yourself struggling with this duality today, as the playful Aries moon encourages you to connect with leisure over labor. The latter half of the day stokes tensions around your finances and resources, as the moon squares off to potent Pluto. Elsewhere, messenger Mercury dips into Pisces, turning your mental focus towards home and family."
-    }        
-    ]
-}
-  
-{
-    "user": [
-        {
-        "id": 1,
-        "name": "Erica",
-        "email": "erica@dot.com"}
     ],
     "horoscope": [
         {
@@ -157,8 +89,14 @@
                 "sign": "Change",
                 "text": "Change"
             }
-    
         }
+    ],
+    "tarot": [
+        {
+        "id": 1,
+        "sign": "libra",
+        "day": "10-12-2020"
+    }
     ]
 }
   
