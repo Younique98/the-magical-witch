@@ -1,0 +1,38 @@
+.flexRight {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.flexLeft {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.currentSignOnHome {
+  text-align: center;
+  height: 74px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 70px;
+  line-height: 53px;
+  text-align: center;
+  padding-top: 25px;
+  color: #e2b97c;
+}
+
+.chooseSignonSignUp {
+  text-align: center;
+  height: 54px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 53px;
+  text-align: center;
+  color: #e2b97c;
+}
