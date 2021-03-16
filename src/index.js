@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import HoroscopeApp from './main';
 import reportWebVitals from './reportWebVitals';
+import { TheMagicalWitch } from "./TheMagicalWitch"
 
 ReactDOM.render(
   <React.StrictMode>
     <HoroscopeApp />
+    {/* <TheMagicalWitch /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

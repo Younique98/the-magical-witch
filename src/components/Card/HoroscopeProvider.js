@@ -6,7 +6,7 @@ const signs = require('../../texts/signs.json');
 
 
 
-class Card extends Component {
+export class Card extends Component {
   constructor(props) {
     super(props)
     this.state = {
