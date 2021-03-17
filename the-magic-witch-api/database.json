@@ -17,6 +17,7 @@
     "horoscopeComments": [
         {
             "id": 1,
+            "sign": "libra",
         "userId": 1,
         "horoscopeComment": "nervous",
         "horoscopeReadingId": 1

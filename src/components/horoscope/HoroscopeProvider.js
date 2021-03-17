@@ -13,7 +13,22 @@ export const HoroscopeProvider = (props) => {
     return fetch(`https://aztro.sameerkumar.website/?sign=${sign.toLowerCase}`)
     .then(response => response.json())
     .then(horoscopeData => setHoroscope(horoscopeData))
+    .then(horoscopeData => {
+      addHoroscope(horoscopeData)
+    })
   }
+  const addHoroscope = (sign) => {
+    debugger
+    return fetch('http://localhost:8088/horoscopes', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sign)
+  })
+  .then(res => res.json())
+  };
+  
   const getYesterday = sign => {
     return fetch(`https://aztro.sameerkumar.website?sign=${sign.toLowerCase()}&day=yesterday`,{
     method:"POST",
