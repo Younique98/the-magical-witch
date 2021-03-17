@@ -7,7 +7,7 @@ import {useHistory, useParams} from "react-router-dom";
 export const HoroscopeThoughtsForm = () => {
     const {getHoroscopes, addHoroscope, addHoroscopeComment, getHoroscopeCommentsById, updateHoroscopeComment} = useContext(HoroscopeContext)
     const { users, getUsers} = useContext(UserContext)
-}
+
 
 const [horoscopeComment, setHoroscopeComment] = useState({
     id: 0,
@@ -30,7 +30,7 @@ const [horoscopes, setHoroscope] = useState({
 })
 
 // this wait for data before button is active. diababiling it until filled out
-const [isLoading, setLoading] = useState(true);
+const [isLoading, setIsLoading] = useState(true);
 
 // Horoscope Id for fetching the horoscopeComment wanting to edit
 
@@ -40,7 +40,7 @@ const { horoscopeCommentId} = useParams();
 
 // once fields are updated, this cause re-render to update views
 
-const handleControlledInputChane = (event) => {
+const handleControlledInputChange = (event) => {
 
     const newHoroscopeComment = {...horoscopeComment}
     //horoscopeComment is object with the properties
@@ -65,7 +65,7 @@ const handleSaveHoroscopeComment = () => {
             sign: horoscopeComment.sign,
             horoscopeComment: horoscopeComment.horoscopeComment,
             horoscopeReadingId: parseInt(horoscopeComment.horoscopeReadingId),
-            userId: parseInt(horoscoopeComment.userId)
+            userId: parseInt(horoscopeComment.userId)
         })
         .then(() => history.push(`/horoscopeComments/detail/${horoscopeComment.id}`))
             }else {
@@ -74,7 +74,7 @@ const handleSaveHoroscopeComment = () => {
                     sign: horoscopeComment.sign,
                     horoscopeComment: horoscopeComment.horoscopeComment,
                     horoscopeReadingId: parseInt(horoscopeComment.horoscopeReadingId),
-                    userId: parseInt(horoscoopeComment.userId)
+                    userId: parseInt(horoscopeComment.userId)
                 })
                 .then(() => history.push("/horoscopeComments"))
             }
@@ -97,4 +97,39 @@ const handleSaveHoroscopeComment = () => {
         })
       }, [])
 
-      return ()
+
+      return (
+        <form className="horoscopeCommentForm">
+        <h2 className="horoscopeCommentForm__title">{horoscopeCommentId ? "Edit Horoscope Comment" : "Add Horoscope Thoughts"}</h2>
+        <fieldset>
+          <div className="form-group">
+              <label htmlFor="horoscopeGiven">Horoscope Given:</label>
+              <p>{horoscopes.data_range}</p>
+              <p>{horoscopes.current_range}</p>
+              <p>{horoscopes.description}</p>
+              <p>{horoscopes.compatibility}</p>
+              <p>{horoscopes.mood}</p>
+              <p>{horoscopes.color}</p>
+              <p>{horoscopes.lucky_number}</p>
+              <p>{horoscopes.lucky_time}</p>
+          </div>
+          </fieldset>
+        <fieldset>
+          <p>{horoscopeComment.sign}</p>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+              <label htmlFor="horoscopeComment">Horoscope Comment:</label>
+              <input type="text" id="horoscopeComment" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="horoscope Comment" value={horoscopeComment.comment}/>
+          </div>
+        </fieldset>
+        <button className="btn btn-primary"
+          disabled={isLoading}
+          onClick={event => {
+            event.preventDefault() // Prevent browser from submitting the form and refreshing the page
+            handleSaveHoroscopeComment()
+          }}>
+        {horoscopeCommentId ? "Save Horoscope Comment" : "Add Horoscope Comment"}</button>
+      </form>
+      )
+        }

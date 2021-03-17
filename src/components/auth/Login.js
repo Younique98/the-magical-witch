@@ -48,7 +48,9 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nutshell</h1>
+                    <h1>The Magical Witch</h1>
+                    <p>"Witchcraft ... is a spiritual path. You walk it for nourishment of the soul, to commune with the life force of the universe, and to thereby better know your own life.
+                        - CHRISTOPHER PENCZAK"</p>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

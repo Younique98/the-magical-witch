@@ -4,23 +4,31 @@ import "./Horoscope.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const HoroscopeDetail = () => {
-    const { getHoroscopeCommentsById, deleteHoroscopeComment} = useContext(HoroscopeContext)
+    const { getHoroscopeCommentsById, deleteHoroscopeComment, getHoroscopeById} = useContext(HoroscopeContext)
 
         const [horoscopeComment, setHoroscopeComments] = useState({})
-
+        const [horoscopes, setHoroscopes] = useState({})
+        const {horoscopeCommentId} = useParams();
         const {horoscopeId} = useParams();
         const history = useHistory();
 
-        const deleteHoroscopeComment = () => {
+        const deleteHoroscopeComments = () => {
             deleteHoroscopeComment(horoscopeComment.id)
             .then(() => {
                 history.push("/horoscopeComments")
             })
         }
-
     useEffect(() => {
         console.log("useEffect", horoscopeId)
-        getHoroscopeCommentsById(horoscopeId)
+        getHoroscopeById(horoscopeId)
+        .then((response) => {
+            setHoroscopes(response)
+        })
+    }, []) 
+
+    useEffect(() => {
+        console.log("useEffect", horoscopeCommentId)
+        getHoroscopeCommentsById(horoscopeCommentId)
         .then((response) => {
             setHoroscopeComments(response)
         })
@@ -35,11 +43,11 @@ export const HoroscopeDetail = () => {
       
         <h3 className="horoscopeReading">{horoscopes.map(horoscope => {
             {console.log(horoscope)}
-            const horoscopeRead = horosopes.find(horoscopeComment => horoscopeComment.horoscopeReadingId ===  horoscopeId)
+            const horoscopeRead = horoscopes.find(horoscopeComment => horoscopeComment.horoscopeReadingId ===  horoscopeCommentId)
         {console.log(horoscopeRead)}
         return horoscopeRead})}
             </h3>
-      <button onClick={deleteHoroscopeComment}>Delete Horoscope Comment</button>
+      <button onClick={deleteHoroscopeComments}>Delete Horoscope Comment</button>
       <button onClick={() => {
      history.push(`/horoscopeComments/edit/${horoscopeComment.id}`)
             }}>Edit</button>

@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
-import Card from "../Card/HoroscopeProvider"
+// import Card from "../Card/HoroscopeProvider"
 import HoroscopeChange from '../Change/Change.js';
+import Card from "./Home"
 
 
 

@@ -17,6 +17,12 @@ export const HoroscopeProvider = (props) => {
       addHoroscope(horoscopeData)
     })
   }
+
+  const getHoroscopeById = (horoscopeId) => {
+    return fetch(`http://localhost:8088/horoscope/${horoscopeId}`)
+      .then(res => res.json())
+  };
+
   const addHoroscope = (sign) => {
     debugger
     return fetch('http://localhost:8088/horoscopes', {
@@ -80,7 +86,7 @@ const getTomorrow = sign => {
   }
 
   const getHoroscopeCommentsById = (id) => {
-    return fetch(`http://localhost:8088/horoscopeComments/${horoscopeId}`)
+    return fetch(`http://localhost:8088/horoscopeComments/${id}`)
       .then(res => res.json())
   };
 
@@ -120,7 +126,8 @@ const getTomorrow = sign => {
       addHoroscopeComment : addHoroscopeComment,
       getHoroscopeCommentsById: getHoroscopeCommentsById,
       deleteHoroscopeComment: deleteHoroscopeComment,
-      updateHoroscopeComment: updateHoroscopeComment
+      updateHoroscopeComment: updateHoroscopeComment,
+      getHoroscopeById: getHoroscopeById
     }}>
       {props.children}
     </HoroscopeContext.Provider>
