@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HoroscopeApp from './main';
+import { BrowserRouter as Router } from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
 import { TheMagicalWitch } from "./TheMagicalWitch"
 
 ReactDOM.render(
   <React.StrictMode>
-    <HoroscopeApp />
-    {/* <TheMagicalWitch /> */}
+      <Router>
+   <TheMagicalWitch />
+   </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

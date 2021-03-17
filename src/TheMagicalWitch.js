@@ -8,7 +8,7 @@ import "./TheMagicalWitch.css"
 
 export const TheMagicalWitch = () => (
   <>
-    <Route>
+    <Route
       render={() => {
         if (sessionStorage.getItem("magicalWitch_user")) {
           return (
@@ -21,7 +21,7 @@ export const TheMagicalWitch = () => (
           return <Redirect to="/login" />;
         }
       }}
-    </Route>
+    />
 
     <Route path="/login">
       <Login />

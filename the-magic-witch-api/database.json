@@ -10,13 +10,21 @@
     "horoscope": [
         {
         "id": 1,
-        "sign": "libra",
-        "day": "10-12-2020"
+        "date_range": "Jul 23 - Aug 22",
+        "current_date": "March 17, 2021",
+        "description": "You're having a lovely day in one way or another -- but try to maintain a balance between all of your people and activities. It's one of those days when you could easily fall off the deep end!",
+        "compatibility": "Aries",
+        "mood": "Cautious",
+        "color": "Blue",
+        "lucky_number": "77",
+        "lucky_time": "3pm"
+        
     }
     ],
     "horoscopeComments": [
         {
             "id": 1,
+            "sign": "libra",
         "userId": 1,
         "horoscopeComment": "nervous",
         "horoscopeReadingId": 1
