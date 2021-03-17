@@ -1,109 +1,113 @@
-import React, { Component } from 'react';
+import React, {useState, createContext} from "react"
 
 
+export const HoroscopeContext = createContext()
 
-const signs = require('../../texts/signs.json');
+export const HoroscopeProvider = (props) => {
+  const [horoscopes, setHoroscope] = useState([])
+  const [horoscopeComments, setHoroscopeComments] = useState([])
+  const [ searchTerms, setSearchTerms ] = useState("")
 
 
+  const getHoroscopes = (sign) => {
+    return fetch(`https://aztro.sameerkumar.website/?sign=${sign.toLowerCase}`)
+    .then(response => response.json())
+    .then(horoscopeData => setHoroscope(horoscopeData))
+  }
+  const getYesterday = sign => {
+    return fetch(`https://aztro.sameerkumar.website?sign=${sign.toLowerCase()}&day=yesterday`,{
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sign)
+  })
+  .then(res => res.json())
+  };
 
-export class Card extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      title : signs[props.currentSign].title,
-      sign: signs[props.currentSign].sign,
-      text: signs[props.currentSign].text,
-      currentSign: signs[props.currentSign].currentSign,
-      yesterday: false,
-      today: false,
-      tomorrow: false,
-      change:false,
-      yesterday_horo: '',
-      today_horo: '',
-      tomorrow_horo: ''
-      }
+  const getToday = sign => {
+    return fetch(`https://aztro.sameerkumar.website?sign=${sign.toLowerCase()}&day=today`,{
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sign)
+  })
+  .then(res => res.json())
+};
+
+const getTomorrow = sign => {
+  return fetch(`https://aztro.sameerkumar.website/?sign=${sign.toLowerCase()}&day=tomorrow`,{
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sign)
+  })
+  .then(res => res.json())
+  };
+
+  const getHoroscopeComment = () => {
+    return fetch("http://localhost:8088/horoscopeComments")
+    .then(response => response.json())
+    .then(horoscopeCommentData => setHoroscopeComments(horoscopeCommentData))
   }
 
-  dict = {
-    "yesterday":"yesterday_horo",
-    "today":"today_horo",
-    "tomorrow" : "tomorrow_horo",
-  }
-
-  loadHoroscopes(){
-    fetch(`https://aztro.sameerkumar.website?sign=${this.state.sign.toLowerCase()}&day=yesterday`,{
-      method:"POST"
+  const addHoroscopeComment = horoscopeComment => {
+    return fetch("http://localhost:8088/horoscopeComments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(horoscopeComment)
     })
-    .then(res => res.json()).then(yesterday => this.setState({yesterday_horo:yesterday}))
+    .then(response => response.json())
+  }
 
-    fetch(`https://aztro.sameerkumar.website?sign=${this.state.sign.toLowerCase()}&day=today`,{
-      method:"POST"
+  const getHoroscopeCommentsById = (id) => {
+    return fetch(`http://localhost:8088/horoscopeComments/${horoscopeId}`)
+      .then(res => res.json())
+  };
+
+  const deleteHoroscopeComment = horoscopeId => {
+    return fetch(`http://localhost:8088/horoscopeComments/${horoscopeId}`, {
+      method: "DELETE"
     })
-    .then(res => res.json()).then(today => this.setState({today_horo:today}))
+    .then(getHoroscopeComment)
+  }
 
-    fetch(`https://aztro.sameerkumar.website?sign=${this.state.sign.toLowerCase()}&day=tomorrow`,{
-      method:"POST"
+  const updateHoroscopeComment = horoscopeComment => {
+    return fetch(`http://localhost:8088/horoscopeComments/${horoscopeComment.id}`, {
+      method: "PUT",
+      headers: {
+        "Conent-Type": "application/json"
+      },
+      body: JSON.stringify(horoscopeComment)
     })
-    .then(res => res.json()).then(tom => this.setState({tomorrow_horo:tom}))
+    .then(getHoroscopeComment)
   }
 
-  componentWillMount(){
-    this.loadHoroscopes();
-  }
 
-  toggle() {
-    document.getElementById('yesterday').classList.remove('clicked');
-    document.getElementById('today').classList.remove('clicked');
-    document.getElementById('tomorrow').classList.remove('clicked');
-    document.getElementById('change').classList.remove('clicked');
-  }
 
-  clicked(elementsTarget){
-    let clicked = elementsTarget.currentTarget;
-    if(eval(`this.state.${clicked.id}`) === true) {
-      document.getElementById("text").textContent = this.state.text;
-      document.getElementById("date").textContent = '';
-      eval(`this.setState({${clicked.id}:!this.state.${clicked.id}}, () => clicked.classList.toggle("clicked"))`);
-    } else {
-      this.setState({yesterday:false, today:false, tomorrow:false, change:false}, ()=> {
-        this.toggle();
-        document.getElementById("date").textContent = this.state[this.dict[clicked.id]].current_date;
-        document.getElementById("text").textContent = this.state[this.dict[clicked.id]].description;
-        eval(`this.setState({${clicked.id}:true}, () => clicked.classList.toggle("clicked"))`);
-      });
-    } 
-  }
+  return (
+    <HoroscopeContext.Provider value={{
 
-  render() {
-    return ( 
-    <div className="card" id="card">
-      
-      <div className="card-text">
-        <span className="date">{`${this.state.title}`}</span>
-        <h2 id="card_sign">{`${this.state.sign}`}</h2>
-        <p id="date"></p>
-        <p id="text">
-        {`${this.state.text}`}
-        </p>
-      </div>
-      <div className="change_sign" id="change" onClick={(element) => this.props.changeSign("change")}>Change sign</div>
-      <div className="card-stats">
-      <div className="stat" id="yesterday" onClick={(element) => this.clicked(element)}>
-          <div className="value">Yesterday's</div>
-          <div className="type">Horoscope</div>
-        </div>
-        <div className="stat border" id="today" onClick={(element) => this.clicked(element)}>
-          <div className="value">Today's</div>
-          <div className="type">Horoscope</div>
-        </div>
-        <div className="stat" id="tomorrow" onClick={(element) => this.clicked(element)}>
-          <div className="value">Tomorrow's</div>
-          <div className="type">Horoscope</div>
-        </div>
-      </div>
-    </div>
-    )
+      horoscopes: horoscopes,
+      setHoroscope: setHoroscope,
+      horoscopeComments: horoscopeComments,
+      searchTerms: searchTerms,
+      setSearchTerms: setSearchTerms,
+      getHoroscopes: getHoroscopes,
+      getYesterday: getYesterday,
+      getToday: getToday,
+      getTomorrow: getTomorrow,
+      getHoroscopeComment: getHoroscopeComment,
+      addHoroscopeComment : addHoroscopeComment,
+      getHoroscopeCommentsById: getHoroscopeCommentsById,
+      deleteHoroscopeComment: deleteHoroscopeComment,
+      updateHoroscopeComment: updateHoroscopeComment
+    }}>
+      {props.children}
+    </HoroscopeContext.Provider>
+  )
 }
-}
-
-export default Card;
