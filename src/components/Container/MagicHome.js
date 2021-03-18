@@ -4,6 +4,10 @@ import Container from './components/Container/Container';
 
 // https://reactjs.org/docs/react-component.html
 
+
+
+
+
         class MagicHome extends Component {
             constructor(props){
               super(props)
@@ -23,6 +27,16 @@ import Container from './components/Container/Container';
           
           export default MagicHome;
           
+
+
+
+
+
+
+
+
+
+
 // // reference https://www.w3schools.com/react/react_props.asp
 // Props are arguments passed into React components.
 

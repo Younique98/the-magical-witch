@@ -23,3 +23,5 @@ export const HoroscopeCard = ({ horoscope}) => {
         </section>
     )
 }
+
+export default HoroscopeCard

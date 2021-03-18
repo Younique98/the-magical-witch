@@ -1,12 +1,12 @@
 
-import React from 'react';
-import "../Change/Change.css"
-
-
+import React, { useContext, useEffect, useState } from 'react';
+import "../Container/Change.css"
+import { HoroscopeContext } from "../horoscope/HoroscopeProvider"
+import HoroscopeCard from "../horoscope/HoroscopeCard"
 
 
 export const HoroscopeChange = ({changeSign}) => {
-
+    const {horoscopes, getHoroscopes} = useContext(HoroscopeContext)
 
     const signName = (e) => {
         let signon = e.target.id;
@@ -19,13 +19,24 @@ export const HoroscopeChange = ({changeSign}) => {
 
     const change = (e) => {
         let signon = e.target.id;
-        changeSign(signon);
+        changeSign = (signon);
     }
+
+    const [selectedHoroscope, setSelectedHoroscope] = useState([])
+
+    useEffect(() => {
+        getHoroscopes()
+    }, [])
+
+    useEffect(() => {
+        const selected = horoscopes.filter(horoscopes.sign.toLowerCase())
+        setSelectedHoroscope(selected)
+    }, [])
 
     return (
     
     <div className="card2">
-        <div id="cur_sign" class="currentSignOnHome"></div>
+        <div id="cur_sign" className="currentSignOnHome"></div>
         <div className="flexLeft" id="first">
 
             <div className="aquariusText">
@@ -95,6 +106,16 @@ export const HoroscopeChange = ({changeSign}) => {
             </div>
         <div></div>
         <div className="chooseSignonSignUp"><p>Choose Your Sign</p></div>
+        <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            {selectedHoroscope.map(horoscope => {
+                return <HoroscopeCard key={horoscope.id} horoscope={horoscope} />
+            })}
+         
+  </div>
+</div>
+    
     </div>
     
     )

@@ -4,7 +4,7 @@ import Container from './components/Container/Container';
 
 
 
-class HoroscopeApp extends Component {
+export default class HoroscopeApp extends React.Component {
   constructor(props){
     super(props)
     this.state = {

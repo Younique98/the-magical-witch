@@ -8,13 +8,14 @@ import { HoroscopeThoughtsForm} from "./components/horoscope/HoroscopeForm"
 import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail"
 import { Card } from "./components/Container/Home"
 import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch"
+import { HoroscopeChange } from "./components/Container/Change"
 
 export const ApplicationViews = () => {
     return (
         <>
         {/* Render the Horoscope Pictures to click and view */}
             <Route exact path="/">
-                <Card />
+                <HoroscopeChange />
             </Route>
 
         {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
