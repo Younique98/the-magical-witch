@@ -1,75 +1,57 @@
-import React from "react"
-import { Route} from "react-router-dom";
-import {UserList} from "./components/users/UserList"
-import {UserProvider} from "./components/users/UserProvider"
-import { HoroscopeProvider } from "./components/horoscope/HoroscopeProvider"
-import { HoroscopeList } from "./components/horoscope/HoroscopeList"
-import { HoroscopeThoughtsForm} from "./components/horoscope/HoroscopeForm"
-import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail"
-import { Card } from "./components/Container/Home"
-import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch"
-import { HoroscopeChange } from "./components/Container/Change"
+import React from "react";
+import { Route } from "react-router-dom";
+import { UserList } from "./components/users/UserList";
+import { UserProvider } from "./components/users/UserProvider";
+import { HoroscopeProvider } from "./components/horoscope/HoroscopeProvider";
+import { HoroscopeList } from "./components/horoscope/HoroscopeList";
+import { HoroscopeThoughtsForm } from "./components/horoscope/HoroscopeForm";
+import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail";
+// import { Card } from "./components/Container/Home"
+import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch";
+// import { HoroscopeChange } from "./components/Container/Change"
+import { SignProvider } from "./components/Signs/SignProvider";
+import { SignList } from "./components/Signs/SignList";
 
 export const ApplicationViews = () => {
-    return (
-        <>
-        {/* Render the Horoscope Pictures to click and view */}
-            <Route exact path="/">
-                <HoroscopeChange />
-            </Route>
+  return (
+    <>
+      {/* Render the Horoscope Pictures to click and view */}
 
-        {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
-        <HoroscopeProvider>
-            <UserProvider>
+      <SignProvider>
+        {/* <Route exact path="/"> */}
+          <SignList />
+        {/* </Route> */}
+      </SignProvider>
 
-            <Route path="/horoscope/create">
-                <HoroscopeThoughtsForm />
-                <HoroscopeList/>
-            </Route>
-
-            <Route exact path="/horoscope">
-                <HoroscopeSearch />
-                <HoroscopeList />
-            </Route>
-
-
-// This is to grab when the user clicks on the image and renders to take them to the reading for the day
-            <Route exact path="/yourHoroscopeReading">
-                <HoroscopeList />
-            </Route>
-
-            <Route exact path="/horoscopeComments/detail/:horoscopeCommentId(\d+)">
-                <HoroscopeDetail />
-            </Route>
-
-            <Route path="/horoscopeComments/edit/:horoscopeCommentId(\d+)">
+      {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
+      <HoroscopeProvider>
+        <UserProvider>
+          <Route path="/horoscope/create">
             <HoroscopeThoughtsForm />
-            </Route>
+            <HoroscopeList />
+          </Route>
 
-            </UserProvider>
-        </HoroscopeProvider>
+          <Route exact path="/horoscope">
+            <HoroscopeSearch />
+            <HoroscopeList />
+          </Route>
 
-                <Route path="/Horoscope">
-                    <Card />
-                </Route>
-                <Route path="/horoscopeComments">
-                    <HoroscopeProvider>
-                        <HoroscopeList />
-                    </HoroscopeProvider>
-                </Route>
+          <Route exact path="/yourHoroscopeReading">
+            <HoroscopeList />
+          </Route>
 
-                <Route path="/Register">
-                <Card />
-                </Route>
+          <Route
+            exact
+            path="/horoscopeComments/detail/:horoscopeCommentId(\d+)"
+          >
+            <HoroscopeDetail />
+          </Route>
 
-                <Route path="/tarot">
-                    <Card />
-                </Route>
-
-                <Route path="/login">
-                    <Card />
-                </Route>
-        
-        </>
-    )
-}
+          <Route path="/horoscopeComments/edit/:horoscopeCommentId(\d+)">
+            <HoroscopeThoughtsForm />
+          </Route>
+        </UserProvider>
+      </HoroscopeProvider>
+    </>
+  );
+};
