@@ -8,13 +8,14 @@ import { HoroscopeThoughtsForm} from "./components/horoscope/HoroscopeForm"
 import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail"
 import { Card } from "./components/Container/Home"
 import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch"
+import { HoroscopeChange } from "./components/Container/Change"
 
 export const ApplicationViews = () => {
     return (
         <>
         {/* Render the Horoscope Pictures to click and view */}
             <Route exact path="/">
-                <Card />
+                <HoroscopeChange />
             </Route>
 
         {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
@@ -28,6 +29,12 @@ export const ApplicationViews = () => {
 
             <Route exact path="/horoscope">
                 <HoroscopeSearch />
+                <HoroscopeList />
+            </Route>
+
+
+// This is to grab when the user clicks on the image and renders to take them to the reading for the day
+            <Route exact path="/yourHoroscopeReading">
                 <HoroscopeList />
             </Route>
 
