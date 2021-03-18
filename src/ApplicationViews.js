@@ -32,6 +32,12 @@ export const ApplicationViews = () => {
                 <HoroscopeList />
             </Route>
 
+
+// This is to grab when the user clicks on the image and renders to take them to the reading for the day
+            <Route exact path="/yourHoroscopeReading">
+                <HoroscopeList />
+            </Route>
+
             <Route exact path="/horoscopeComments/detail/:horoscopeCommentId(\d+)">
                 <HoroscopeDetail />
             </Route>
