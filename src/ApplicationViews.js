@@ -11,6 +11,7 @@ import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch";
 // import { HoroscopeChange } from "./components/Container/Change"
 import { SignProvider } from "./components/Signs/SignProvider";
 import { SignList } from "./components/Signs/SignList";
+import {SignHoroscope} from "./components/horoscope/SignHoroscope"
 
 export const ApplicationViews = () => {
   return (
@@ -18,9 +19,9 @@ export const ApplicationViews = () => {
       {/* Render the Horoscope Pictures to click and view */}
 
       <SignProvider>
-        {/* <Route exact path="/"> */}
+        <Route exact path="/">
           <SignList />
-        {/* </Route> */}
+        </Route>
       </SignProvider>
 
       {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
@@ -36,8 +37,8 @@ export const ApplicationViews = () => {
             <HoroscopeList />
           </Route>
 
-          <Route exact path="/yourHoroscopeReading">
-            <HoroscopeList />
+          <Route exact path="/horoscope/:starsign">
+            <SignHoroscope />
           </Route>
 
           <Route

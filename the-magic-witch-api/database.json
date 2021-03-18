@@ -32,7 +32,7 @@
             {   
                 "id": 2,
                 "title": "The one who rules",
-                "sign": "Aries",
+                "name": "Aries",
                 "description": "His ability to be admired by everyone without it going straight to his head makes him a staple in anyone’s life. He knows how to be a leader and a friend, finding that perfect balance between the two roles.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/aries_fmhx3o.png",
                 "dateRange": "Mar 21 - Apri 19"
@@ -40,7 +40,7 @@
             {
                 "id": 3,
                 "title": "The one who strikes your heart",
-                "sign": "Taurus",
+                "name": "Taurus",
                 "description": "There’s something about the deliberateness in his actions that touch the hearts of many. Whether it’s through romance or just by letting you know that he's your friend ‘til the end, Taurus knows how to make anyone feel special and loved.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918428/taurus_qh2xi3.png",
                 "dateRange": "Apr 20 - May 20"
@@ -48,7 +48,7 @@
             {
                 "id": 4,
                 "title": "The one who shines bright",
-                "sign": "Gemini",
+                "name": "Gemini",
                 "description": "Gemini might be too intense for some people at first, but there is something about him that intrigues everyone who meets him.He brightens up a room whenever he walks in and when he leaves, you always find yourself missing him.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/gemini_onzq1j.png",
                 "dateRange": "May 21 - Jun 20"
@@ -56,7 +56,7 @@
             {
                 "id": 5,
                 "title": "The one who is full of moons",
-                "sign": "Cancer",
+                "name": "Cancer",
                 "description": "“A gentle, but fearless leader” is the perfect way to describe Cancer because, just like the moon, he is both soft and romantic, yet bold and a trailblazer.But even if he’s ever-changing (like the moon), he is still as reliable as ever.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/cancer_el8p2v.png",
                 "dateRange": "Jun 21 - Jul 22"
@@ -64,7 +64,7 @@
             {
                 "id": 6,
                 "title": "The one who is made of sunshine",
-                "sign": "Leo",
+                "name": "Leo",
                 "description": "Leo acts like the world revolves around him because if people were stars and planets, he would definitely be the Sun.He tends to bring light wherever he goes, making it easy to see why people are so attracted to him.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918428/leo_qduvjm.png",
                 "dateRange": "Jul 23 - Aug 22"
@@ -72,7 +72,7 @@
             {
                 "id": 7,
                 "title": "The one who stands for themselves",
-                "sign": "Virgo",
+                "name": "Virgo",
                 "description": "Virgo knows that the most reliable person you can trust is yourself, which is why he doesn’t often take the advice of others.Virgo is like an all-knowing person who stands strong and tall because he knows that others look to him as a leader.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918428/virgo_rajuxd.png",
                 "dateRange": "Aug 23 - Sep 22"
@@ -80,7 +80,7 @@
             {
                 "id": 8,
                 "title": "The one who is filled with love",
-                "sign": "Libra",
+                "name": "Libra",
                 "description": "All Libra wants is to make sure everyone in his life is well-loved.He will often go out of his way to take care of and please others, which not only makes him incredibly selfless, but also an amazing friend and partner.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/libra_t5mrnm.png",
                 "dateRange": "Sep 23 - Oct 22"
@@ -88,7 +88,7 @@
             {
                 "id": 9,
                 "title": "The one who wins your heart",
-                "sign": "Scorpio",
+                "name": "Scorpio",
                 "description": "Scorpio can be considered erratic and intense to some, but when you really get to know him, he’s nothing but a big softie.Scorpio’s main goal in life is to make sure his friends and family know that they are tremendously important to him.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918428/scorpio_p5a7dm.png",
                 "dateRange": "Oct 23 - Nov 21"
@@ -96,7 +96,7 @@
             {
                 "id": 10,
                 "title": "The one who climbs higher than anyone else",
-                "sign": "Capricorn",
+                "name": "Capricorn",
                 "description": "Capricorn is always reaching new heights, constantly wanting to learn more and expand his mind.He loves being the person with a wealth of knowledge and, more than that, someone who can share this newfound knowledge with others.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/capricorn_jmbwbi.png",
                 "dateRange": "Dec 22 - Jan 19"
@@ -105,7 +105,7 @@
                 
                 "id": 11,
                 "title": "The one who is made with color",
-                "sign": "Aquarius",
+                "name": "Aquarius",
                 "description": "Aquarius is totally unique and loves it that way. He lives for himself and doesn’t care what anyone thinks of him, which intrigues everyone who knows him.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918427/aquarius_zb8hl7.png",
                 "dateRange": "Jan 20 - Feb 18"
@@ -113,15 +113,10 @@
             {
                 "id": 12,
                 "title": "The one who dreams of the unimaginable",
-                "sign": "Pisces",
+                "name": "Pisces",
                 "description": "So many people criticize Pisces for always having his head in the clouds, but in reality, he’s only dreaming of bigger things in this life.He sees life through rose-colored glasses and is always looking for ways to make a difference.",
                 "imageUrl": "https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_150,w_150/v1615918428/pisces_zetqxi.png",
                 "dateRange": "Feb 19 - Mar 20"
-            },
-            {
-                "title": "Change",
-                "sign": "Change",
-                "description": "Change"
             }
     ],
     "tarot": [
