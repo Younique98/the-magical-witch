@@ -2,6 +2,7 @@ import React, {useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { SignContext } from "./SignProvider"
 import { Sign } from "./Sign"
+import "./Signs.css"
 
 export const SignList = () => {
     const history = useHistory()
@@ -14,7 +15,7 @@ export const SignList = () => {
     return (
         <>
         <header className="sign__header">
-            <h2>Horoscope Sign</h2>
+            <h2 className="pickYourSign">Pick your Sign</h2>
         </header>
         <div className="signs">
             {
