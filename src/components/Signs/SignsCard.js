@@ -9,10 +9,10 @@ export const SignsCard = ({sign}) => (
                 {sign.imageUrl}
             </Link>
         </h3>
-        <div className="sign_name">Title: {sign.name}</div>
-        <div className="sign_title">Title: {sign.title}</div>
-        <div className="sign_description">Title: {sign.description}</div>
-        <div className="sign_imageUrl">Title: {sign.imageUrl}</div>
-        <div className="sign_dateRange">Title: {sign.dateRange}</div>
+        <div className="sign_name">Sign Name: {sign.name}</div>
+        <div className="sign_title">Sign Title: {sign.title}</div>
+        <div className="sign_description">Description: {sign.description}</div>
+        {/* <img className="sign_imageUrl" >{sign.imageUrl}</img> */}
+        <div className="sign_dateRange">Date Range: {sign.dateRange}</div>
     </section>
 )

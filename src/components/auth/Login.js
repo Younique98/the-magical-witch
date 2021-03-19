@@ -48,10 +48,12 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>The Magical Witch</h1>
-                    <p>"Witchcraft ... is a spiritual path. You walk it for nourishment of the soul, to commune with the life force of the universe, and to thereby better know your own life.
-                        - CHRISTOPHER PENCZAK"</p>
-                    <h2>Please sign in</h2>
+                    <h1 className="siteNameHomePage">Its good to see you!! Lets see what the universe has in store for you today!!!</h1>
+                    <h2 className="loginPrompt">Login</h2>
+                    {/* <p>"Witchcraft ... is a spiritual path. You walk it for nourishment of the soul, to commune with the life force of the universe, and to thereby better know your own life.
+                        - CHRISTOPHER PENCZAK"</p> */}
+                    <section className="PleaseSignAndBelow">
+                    {/* <h2>Please sign in</h2> */}
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -64,13 +66,14 @@ export const Login = () => {
                     </fieldset>
                     <fieldset>
                         <button type="submit">
-                            Sign in
+                            Enter
                         </button>
                     </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
+                    </section>
+                <section className="link--register">
                 <Link to="/register">Register for an account</Link>
+            </section>
+            </form>        
             </section>
         </main>
     )

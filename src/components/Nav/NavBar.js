@@ -1,11 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./NavBar.css"
 
 export const NavBar = (props) => {
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
-
+      <div className="navBar">
       <ul className="nav nav-pills nav-fill">
         <li className="nav-item">
           <Link className="nav-link" to="/Horoscope">Horoscopes</Link>
@@ -23,6 +24,7 @@ export const NavBar = (props) => {
           <Link className="nav-link" to="/login">Login</Link>
         </li>
       </ul>
+      </div>
     </nav>
   )
 }
