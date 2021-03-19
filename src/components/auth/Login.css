@@ -1,5 +1,66 @@
+  body {
+  background-color: #F6F5F1
+}
+
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
   }
   
+.PleaseSignAndBelow {
+  background-color: #03AD91;
+  /* Rectangle 2 */
+/* position: absolute; */
+left: 15.57%;
+right: 9.79%;
+top: 24.06%;
+bottom: 9.8%;
+border-radius: 25px;
+font-size: 24px;
+
+}
+
+/* Its good to see you!! Lets see what the universe has in store for you today!!! */
+.form--login{
+position: absolute;
+/* left: 20.34%; */
+right: 20.34%;
+top: 20.92%;
+bottom: 72.19%;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+text-align: center;
+
+color: #000000;
+}
+
+.link--register{
+  font-size: 16px;
+}
+
+.loginPrompt{
+  /* Login */
+font-family: AppleGothic;
+font-style: normal;
+font-weight: 300;
+font-size: 40px;
+line-height: 49px;
+color: #E2B97C;
+
+
+}
+
+.form-control{
+left: 30.26%;
+right: 25.25%;
+top: 51.16%;
+bottom: 41.18%;
+text-align: center;
+background: #FFFFFF;
+border-radius: 25px;
+
+}
