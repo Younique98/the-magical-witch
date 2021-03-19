@@ -3,7 +3,8 @@
         {
         "id": 1,
         "name": "Erica",
-        "email": "erica@dot.com"
+        "email": "erica@dot.com",
+        "sign": "libra"
     }
     ],
     "horoscope": [
@@ -16,7 +17,8 @@
         "mood": "Cautious",
         "color": "Blue",
         "lucky_number": "77",
-        "lucky_time": "3pm"
+        "lucky_time": "3pm",
+        "userId": 1
         
     }
     ],

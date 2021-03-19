@@ -13,7 +13,7 @@ export const UserCard = ({ user}) => {
     
     let showButton = true
     
-    //if array of filtered friends is greater than 0 then leave whatever returned filtered search as blank.
+    
     if (user.id === currentUser) {
         user.name = ""
         showButton = false

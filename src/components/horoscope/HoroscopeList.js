@@ -1,36 +1,34 @@
-import React, { useContext, useEffect, useState } from "react"
-import { HoroscopeContext } from "./HoroscopeProvider"
-import { HoroscopeCard} from "./HoroscopeCard"
-import "./Horoscope.css"
-import { useHistory } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react";
+import { HoroscopeContext } from "./HoroscopeProvider";
+import "./Horoscope.css";
+import { UserContext } from "../users/UserProvider";
 
 export const HoroscopeList = () => {
-  const {getYesterday, getToday, getTomorrow, searchTerms } = useContext(HoroscopeContext)
+  const { getToday } = useContext(HoroscopeContext);
+  const { getUserById } = useContext(UserContext);
 
-  const history = useHistory()
+  const loggedInUser = parseInt(sessionStorage.getItem("magicalWitch_user"));
+  const [loggedUserInfo, setLoggedUserInfo] = useState({});
 
-  // Empty dependency array - useEffect only runs after first render
-  // useEffect dependency array with dependencies - will run if dependency changes (state)
-  // searchTerms will cause a change
   useEffect(() => {
-    getToday()
-  }, [])
+    getUserById(loggedInUser)
+      .then((userInfo) => {
+        setLoggedUserInfo(userInfo);
+      });
+  }, []);
+
+    useEffect(() => {
+      getToday(loggedUserInfo.sign)
+    }, [])
 
   return (
     <>
-      <h1>The Gathering of Thoughts</h1>
-      <h4>Horoscope Readings</h4>
+      <section className="userHoroscope">
+        <p>{loggedUserInfo.sign}</p>
+      </section>
+      {
 
-      <button onClick={() => history.push("/horoscopes/create")}>
-          Horoscope
-      </button>
-      <div className="Horoscopes">
-      {/* {
-        horoscopes.map(horoscope => {
-          return <HoroscopeCard key={horoscope.id} horoscope={horoscope} />
-        })
-      } */}
-      </div>
+      }
     </>
-  )
-}
+  );
+};

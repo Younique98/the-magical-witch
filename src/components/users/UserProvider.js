@@ -18,7 +18,7 @@ export const UserProvider = (props) => {
     }
 
     const getUserById = (userId) => {
-        return fetch(`http://localhost:8088/${userId}`)
+        return fetch(`http://localhost:8088/users/${userId}`)
         .then(res => res.json())
     }
 
@@ -32,3 +32,5 @@ export const UserProvider = (props) => {
     //You return a context provider which has the `users` state, `getUsers` function,
     // etc. function as keys. This allows any child elements to access them.
 }
+
+

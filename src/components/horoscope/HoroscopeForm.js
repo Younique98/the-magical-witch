@@ -10,11 +10,15 @@ export const HoroscopeThoughtsForm = () => {
 
 
 const [horoscopeComment, setHoroscopeComment] = useState({
-    id: 0,
-    sign: "",
-    userId: 0,
-    horoscopeComment: "",
-    horoscopeReadingId: 0
+      userId: sessionStorage.getItem("magicalWitch_user"),
+      date_range: "",
+      current_date: "",
+      description: "",
+      compatibility: "",
+      mood: "",
+      color: "",
+      lucky_number: "",
+      lucky_time: ""
 })
 
 const [horoscopes, setHoroscope] = useState({
