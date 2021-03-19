@@ -51,3 +51,24 @@
 /* p {
   text-align: center;
 } */
+
+.signs{
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5vw);
+  grid-gap: 15px;
+  margin-left: 10%;
+}
+
+.pickYourSign {
+  color: #E2B97C;
+  /* Pick your Sign */
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+text-align: center;
+
+}

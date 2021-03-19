@@ -12,7 +12,7 @@ export const SignsCard = ({sign}) => (
         <div className="sign_name">Sign Name: {sign.name}</div>
         <div className="sign_title">Sign Title: {sign.title}</div>
         <div className="sign_description">Description: {sign.description}</div>
-        {/* <img className="sign_imageUrl" >{sign.imageUrl}</img> */}
+        <img className="sign_imageUrl" >{sign.imageUrl}</img>
         <div className="sign_dateRange">Date Range: {sign.dateRange}</div>
     </section>
 )
