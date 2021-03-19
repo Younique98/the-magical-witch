@@ -7,8 +7,7 @@ export const HoroscopeProvider = (props) => {
   const [horoscopeToday, setHoroscopeToday] = useState({})
   const [horoscopeYesterday, setHoroscopeYesterday] = useState({})
   const [horoscopeTomorrow, setHoroscopeTomorrow] = useState({})
-  const [horoscopeComments, setHoroscopeComments] = useState([])
-  const [ searchTerms, setSearchTerms ] = useState("")
+  
 
     const getYesterday = sign => {
     return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=yesterday`,{
