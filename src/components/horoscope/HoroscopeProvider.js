@@ -22,16 +22,21 @@ export const HoroscopeProvider = (props) => {
   };
 
   const getToday = sign => {
-    return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`,{
-    method:"POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(sign)
-  })
-  .then(res => res.json())
-  .then(res => setHoroscopeToday(res))
+    if (sign !== ""){
+      return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`,{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sign)
+    })
+    .then(res => res.json())
+    .then(res => setHoroscopeToday(res))
+    } else {
+      console.log("no sign, yet")
+    }
 };
+
 
 const getTomorrow = sign => {
   return fetch(`https://aztro.sameerkumar.website/?sign=${sign}&day=tomorrow`,{

@@ -7,7 +7,7 @@ import { HoroscopeList } from "./components/horoscope/HoroscopeList";
 import { HoroscopeThoughtsForm } from "./components/horoscope/HoroscopeForm";
 import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail";
 // import { Card } from "./components/Container/Home"
-import { HoroscopeSearch } from "./components/horoscope/HoroscopeSearch";
+
 // import { HoroscopeChange } from "./components/Container/Change"
 import { SignProvider } from "./components/Signs/SignProvider";
 import { SignList } from "./components/Signs/SignList";
@@ -33,7 +33,6 @@ export const ApplicationViews = () => {
           </Route>
 
           <Route exact path="/horoscope">
-            <HoroscopeSearch />
             <HoroscopeList />
           </Route>
 
