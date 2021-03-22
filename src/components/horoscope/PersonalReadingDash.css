@@ -1,0 +1,54 @@
+body{
+    background-color: #F6F5F1
+}
+
+.userHoroscope {
+width: 272px;
+height: 381px;
+background: #03AD91;
+border-radius: 25px;
+}
+
+.userTarotReading {
+width: 272px;
+height: 381px;
+background: #03AD91;
+border-radius: 25px;
+
+}
+
+.personalReadings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+p{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+top: 100px;
+color: #000000;
+}
+
+.horoscopeDescrip {
+position: absolute;
+width: 295px;
+height: 229px;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+left: 180px;
+color: #000000;
+padding: 1.5em;
+}
+
+.headingTarot {
+    margin: 40px;
+}
