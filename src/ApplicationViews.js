@@ -11,7 +11,8 @@ import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail";
 // import { HoroscopeChange } from "./components/Container/Change"
 import { SignProvider } from "./components/Signs/SignProvider";
 import { SignList } from "./components/Signs/SignList";
-import {SignHoroscope} from "./components/horoscope/SignHoroscope"
+import { SignHoroscope } from "./components/horoscope/SignHoroscope";
+import { HoroscopeLocalProvider } from "./components/horoscope/HoroscopeLocalProvider";
 
 export const ApplicationViews = () => {
   return (
@@ -27,33 +28,39 @@ export const ApplicationViews = () => {
       {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
       <HoroscopeProvider>
         <UserProvider>
-          <Route path="/horoscope/create">
-            <HoroscopeThoughtsForm />
-            <HoroscopeList />
-          </Route>
+          <HoroscopeLocalProvider>
+            <Route path="/horoscope/create">
+              <HoroscopeThoughtsForm />
+              <HoroscopeList />
+            </Route>
 
-          <Route exact path="/horoscope">
-            <HoroscopeList />
-          </Route>
+            <Route exact path="/horoscope">
+              <HoroscopeList />
+            </Route>
 
+            {/* <Route exact path="/horoscope/:starsign">
+            <SignHoroscope />
+          </Route> */}
+
+            <Route exact path="/horoscope/yourSign">
+              <SignHoroscope />
+            </Route>
+
+            <Route
+              exact
+              path="/horoscopeComments/detail/:horoscopeCommentId(\d+)"
+            >
+              <HoroscopeDetail />
+            </Route>
+
+            <Route path="/horoscopeComments/edit/:horoscopeCommentId(\d+)">
+              <HoroscopeThoughtsForm />
+            </Route>
+          
           <Route exact path="/horoscope/:starsign">
             <SignHoroscope />
           </Route>
-
-          <Route exact path="/horoscope/yourSign">
-          
-          </Route>
-
-          <Route
-            exact
-            path="/horoscopeComments/detail/:horoscopeCommentId(\d+)"
-          >
-            <HoroscopeDetail />
-          </Route>
-
-          <Route path="/horoscopeComments/edit/:horoscopeCommentId(\d+)">
-            <HoroscopeThoughtsForm />
-          </Route>
+          </HoroscopeLocalProvider>
         </UserProvider>
       </HoroscopeProvider>
     </>

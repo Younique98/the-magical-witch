@@ -1,21 +1,58 @@
-import React, { useContext, useEffect} from "react"
+import React, { useContext, useEffect, useState} from "react"
 import { useParams } from "react-router-dom";
 import { HoroscopeContext } from "./HoroscopeProvider"
+import { HoroscopeLocalContext} from "./HoroscopeLocalProvider"
+import { UserContext} from "../users/UserProvider"
 import "./Horoscope.css"
 
 
 export const SignHoroscope = () => {
     const { horoscopeToday, horoscopeTomorrow, horoscopeYesterday, getToday, getTomorrow, getYesterday } = useContext(HoroscopeContext)
-
+    const {saveHoroscope} = useContext(HoroscopeLocalContext)
     const { starsign } = useParams();
-    
-    
+    const { getUserById } = useContext(UserContext);
+  const loggedInUser = parseInt(sessionStorage.getItem("magicalWitch_user"));
+ 
+  const [loggedUserInfo, setLoggedUserInfo] = useState({});
+
+  const signNeeded = loggedUserInfo.sign
+  
+    const saveToday = () => {
+        console.log("saving today's horoscope")
+        getToday(signNeeded)
+        .then((response) => {
+            saveHoroscope(response)
+            
+    })}
+
+    const saveTomorrow = () => {
+        console.log("saving tomorrow's horoscope")
+        saveHoroscope(() => {
+            getTomorrow()
+        })
+    }
+    const saveYesterday = () => {
+        console.log("saving yesterday's horoscope")
+        saveHoroscope(() => {
+            getYesterday()
+        })
+    }
+    useEffect(() => {
+        
+       getUserById(loggedInUser)
+         .then((res) => 
+             setLoggedUserInfo(res)
+              )
+              
+      }, []);
     
     useEffect(() => {
         getToday(starsign)
         .then(() => getTomorrow(starsign))
         .then(() => getYesterday(starsign))
     }, [])
+
+       
 
     return (
        
@@ -30,6 +67,7 @@ export const SignHoroscope = () => {
             <p>Color: {horoscopeToday.color}</p>
             <p>Lucky Number: {horoscopeToday.lucky_number}</p>
             <p>Lucky Time: {horoscopeToday.lucky_time}</p>
+            <button onClick={() => saveToday()}>Save Today's Horoscope</button>
             </section>
             <section className="horoscopeYesterday">
                 <p>Yesterday's Horoscope</p>
@@ -41,6 +79,7 @@ export const SignHoroscope = () => {
             <p>Color: {horoscopeYesterday.color}</p>
             <p>Lucky Number: {horoscopeYesterday.lucky_number}</p>
             <p>Lucky Time: {horoscopeYesterday.lucky_time}</p>
+            <button onClick={() => saveYesterday()}>Save Yesterday's Horoscope</button>
             </section>
             <section className="horoscopeTomorrow">
                 <p>Tomorrow's Horoscope</p>
@@ -52,6 +91,7 @@ export const SignHoroscope = () => {
             <p>Color: {horoscopeTomorrow.color}</p>
             <p>Lucky Number: {horoscopeTomorrow.lucky_number}</p>
             <p>Lucky Time: {horoscopeTomorrow.lucky_time}</p>
+            <button onClick={() => saveTomorrow()}>Save Tomorrow's Horoscope</button>
             </section> 
                
         </section>

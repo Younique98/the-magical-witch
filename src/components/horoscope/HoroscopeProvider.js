@@ -19,7 +19,8 @@ export const HoroscopeProvider = (props) => {
   })
   .then(res => res.json())
   .then(res => setHoroscopeYesterday(res))
-  };
+  }
+  ;
 
   const getToday = sign => {
     if (sign !== ""){
