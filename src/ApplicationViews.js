@@ -40,6 +40,10 @@ export const ApplicationViews = () => {
             <SignHoroscope />
           </Route>
 
+          <Route exact path="/horoscope/yourSign">
+          
+          </Route>
+
           <Route
             exact
             path="/horoscopeComments/detail/:horoscopeCommentId(\d+)"
