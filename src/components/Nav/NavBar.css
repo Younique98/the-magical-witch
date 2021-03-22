@@ -1,10 +1,18 @@
 body {
-    font-size: 16px;
+  font-size: 16px;
+  color: #e2b97c;
 }
 .navBar {
-    float: none;
+  float: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 90%;
+  height: 53px;
+  color: #e2b97c;
+  background: #0e4749;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
 }

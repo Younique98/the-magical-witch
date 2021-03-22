@@ -12,13 +12,19 @@ export const HoroscopeList = () => {
   const signNeeded = loggedUserInfo.sign
   const history = useHistory();
   console.log(signNeeded)
+
   const todayHoroscopeReading = () => {
     getToday(signNeeded)
     .then(() => getTomorrow(signNeeded))
     .then(() => getYesterday(signNeeded))
     .then(history.push(`/horoscope/yourSign`))
   }
-  
+  // const todayTarotReading = () => {
+  //   getTodayTarot(signNeeded)
+  //   .then(() => getTarotTomorrow(signNeeded))
+  //   .then(() => getTarotYesterday(signNeeded))
+  //   .then(history.push(`/tarot/yourSign`))
+  // }
   
   useEffect(() => {
     getUserById(loggedInUser)
@@ -39,8 +45,11 @@ export const HoroscopeList = () => {
       </section>
       <section className="userTarotReading">
           <p className="headingTarot">Strength</p>
-          <p className="descriptTarot">It is important to come from a place of love and tolerance though, not aggression. Put your fears to rest and develop a positive attitude and you'll reap richer rewards.</p>
+          <p className="descriptTarot">Put your fears to rest and develop a positive attitude and you'll reap richer rewards.</p>
           <img src="https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_212/v1616430844/chariot-6016921_640_sxhidi.jpg" className="placeholderTheChariot" alt="placeholderCard" />
+          <button className="btnTarot" onClick={event => { event.preventDefault()
+        // todayTarotReading()
+        }}>Press for Today's Tarot Reading</button>
       </section>
       </section>
     </>
