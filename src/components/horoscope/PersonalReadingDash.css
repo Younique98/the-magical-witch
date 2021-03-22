@@ -60,7 +60,7 @@ padding: 1.5em;
     display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 43%;
+  width: 30%;
 }
 .btnHoroscope {
     display: block;
@@ -85,4 +85,21 @@ width: 250px
     width: 330px;
     right: -20px;
     top: -10px;
+}
+
+.btnTarot {
+    display: block;
+    background-color: #FFFFFF; /* Green */
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+height: 50px;
+position: absolute;
+top: 380px;
+right: 370px;
+width: 250px
 }
