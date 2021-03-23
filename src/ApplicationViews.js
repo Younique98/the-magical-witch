@@ -26,9 +26,10 @@ export const ApplicationViews = () => {
       </SignProvider>
 
       {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
-      <HoroscopeProvider>
+     <HoroscopeLocalProvider>
+        <HoroscopeProvider>
         <UserProvider>
-          <HoroscopeLocalProvider>
+          
             <Route path="/horoscope/create">
               <HoroscopeThoughtsForm />
               <HoroscopeList />
@@ -42,9 +43,9 @@ export const ApplicationViews = () => {
             <SignHoroscope />
           </Route> */}
 
-            <Route exact path="/horoscope/yourSign">
+            {/* <Route exact path="/horoscope/yourSign">
               <SignHoroscope />
-            </Route>
+            </Route> */}
 
             <Route
               exact
@@ -60,9 +61,10 @@ export const ApplicationViews = () => {
           <Route exact path="/horoscope/:starsign">
             <SignHoroscope />
           </Route>
-          </HoroscopeLocalProvider>
+          
         </UserProvider>
       </HoroscopeProvider>
+      </HoroscopeLocalProvider>
     </>
   );
 };

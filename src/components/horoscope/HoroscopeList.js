@@ -5,19 +5,19 @@ import {useHistory } from "react-router-dom"
 import "./PersonalReadingDash.css"
 import { UserContext } from "../users/UserProvider";
 export const HoroscopeList = () => {
-  const { getToday, horoscopeToday, getTomorrow, getYesterday } = useContext(HoroscopeContext);
+  const { getToday, horoscopeToday, getTomorrow, getYesterday, horoscopeTomorrow, horoscopeYesterday } = useContext(HoroscopeContext);
   const { getUserById } = useContext(UserContext);
   const loggedInUser = parseInt(sessionStorage.getItem("magicalWitch_user"));
   const [loggedUserInfo, setLoggedUserInfo] = useState({});
   const signNeeded = loggedUserInfo.sign
   const history = useHistory();
-  console.log(signNeeded)
+  // console.log(signNeeded)
 
   const todayHoroscopeReading = () => {
     getToday(signNeeded)
     .then(() => getTomorrow(signNeeded))
     .then(() => getYesterday(signNeeded))
-    .then(history.push(`/horoscope/yourSign`))
+    .then(history.push(`/horoscope/${signNeeded}`))
   }
   // const todayTarotReading = () => {
   //   getTodayTarot(signNeeded)

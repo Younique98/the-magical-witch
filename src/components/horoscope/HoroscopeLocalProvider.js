@@ -1,59 +1,66 @@
-import React, {useState, createContext} from "react"
+import React, { useState, createContext } from "react";
 
-
-export const HoroscopeLocalContext = createContext()
+export const HoroscopeLocalContext = createContext();
 
 export const HoroscopeLocalProvider = (props) => {
-    const [horoscopeComment, setHoroscopeComment] = useState({})
-    const [horoscope, setHoroscope] = useState({})
-    
-    const getHoroscopes = () => {
-        return fetch(`http://localhost:8088/horoscope?userId=${(parseInt(sessionStorage.getItem("magicWitch_user")))}`)
-            .then(res => res.json())
-            .then(setHoroscope)
-    }
+  const [horoscopeComment, setHoroscopeComment] = useState({});
+  const [horoscope, setHoroscope] = useState({});
 
-    const saveHoroscope = (horoscope) => {
-        return fetch("http://localhost:8088/horoscope", {
-            method: "POST",
-            header: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(horoscope)
-        })
-        .then(() => getHoroscopes(parseInt(sessionStorage.getItem("magicalWitch_user"))))
-    }
+  const getHoroscopes = () => {
+    return fetch(
+      `http://localhost:8088/horoscopes?userId=${parseInt(
+        sessionStorage.getItem("magicWitch_user")
+      )}`
+    )
+      .then((res) => res.json())
+      .then(setHoroscope);
+  };
 
-    const addHoroscope = (horoscope) => {
-        return fetch("http://localhost:8088/horoscope", {
-            method: "POST",
-            header: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(horoscope)
-        })
-        .then(() => getHoroscopeComment(parseInt(sessionStorage.getItem("magicalWitch_user"))))
-    }
+  const saveHoroscope = (horoscope) => {
+    debugger;
+    return fetch("http://localhost:8088/horoscopes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(horoscope),
+    }).then((response) => response.json());
+  };
 
-    const getHoroscopeComment = horoscopeid => {
-        return fetch(`http://localhost:8088/horoscope`)
-        .then(response => response.json())
-        .then(horoscope => setHoroscopeComment(horoscope))
-    };
+//   const addHoroscope = (horoscope) => {
+//     return fetch("http://localhost:8088/horoscopes", {
+//       method: "POST",
+//       header: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(horoscope),
+//     }).then(() =>
+//       getHoroscopeComment(parseInt(sessionStorage.getItem("magicalWitch_user")))
+//     );
+//   };
 
-    const getHoroscopeSavedId = (id) => {
-        return fetch(`http://localhost:8088/horoscope/${id}`)
-          .then(res => res.json())
-    };
+  const getHoroscopeComment = (horoscopeid) => {
+    return fetch(`http://localhost:8088/horoscopes`)
+      .then((response) => response.json())
+      .then((horoscope) => setHoroscopeComment(horoscope));
+  };
 
-return (
-    <HoroscopeLocalContext.Provider value={{
+  const getHoroscopeSavedId = (id) => {
+    return fetch(`http://localhost:8088/horoscopes/${id}`).then((res) =>
+      res.json()
+    );
+  };
+
+  return (
+    <HoroscopeLocalContext.Provider
+      value={{
         horoscopeComment: horoscopeComment,
         getHoroscopeComment: getHoroscopeComment,
         getHoroscopeSavedId: getHoroscopeSavedId,
-        saveHoroscope: saveHoroscope
-    }}>
-        {props.children}
+        saveHoroscope: saveHoroscope,
+      }}
+    >
+      {props.children}
     </HoroscopeLocalContext.Provider>
-)
-}
+  );
+};
