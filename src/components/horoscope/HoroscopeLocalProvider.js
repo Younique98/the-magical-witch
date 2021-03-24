@@ -7,9 +7,10 @@ export const HoroscopeLocalProvider = (props) => {
   const [horoscope, setHoroscope] = useState({});
 
   const getHoroscopes = () => {
+    debugger
     return fetch(
       `http://localhost:8088/horoscopes?userId=${parseInt(
-        sessionStorage.getItem("magicWitch_user")
+        sessionStorage.getItem("magicalWitch_user")
       )}`
     )
       .then((res) => res.json())
@@ -49,8 +50,11 @@ export const HoroscopeLocalProvider = (props) => {
 //     );
 //   };
 
-  const getHoroscopeComment = (horoscopeid) => {
-    return fetch(`http://localhost:8088/horoscopes`)
+  const getHoroscopeComment = () => {
+    debugger
+    return fetch(`http://localhost:8088/horoscopes?userId=${parseInt(
+      sessionStorage.getItem("magicalWitch_user")
+    )}`)
       .then((response) => response.json())
       .then((horoscope) => setHoroscopeComment(horoscope));
   };
@@ -69,7 +73,8 @@ export const HoroscopeLocalProvider = (props) => {
         getHoroscopeSavedId: getHoroscopeSavedId,
         saveHoroscope: saveHoroscope,
         getHoroscopes: getHoroscopes, 
-        updateHoroscope: updateHoroscope
+        updateHoroscope: updateHoroscope,
+        horoscope: horoscope
       }}
     >
       {props.children}
