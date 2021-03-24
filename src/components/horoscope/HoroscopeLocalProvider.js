@@ -5,7 +5,7 @@ export const HoroscopeLocalContext = createContext();
 export const HoroscopeLocalProvider = (props) => {
   const [horoscopeComment, setHoroscopeComment] = useState({});
   const [horoscope, setHoroscope] = useState([]);
-
+  
   const getHoroscopes = () => {
     
     return fetch(
@@ -28,13 +28,16 @@ export const HoroscopeLocalProvider = (props) => {
     }).then((response) => response.json());
   };
 
-    const updateHoroscope = horoscope => {
+    const updateHoroscope = (comment, horoscope) => {
+      debugger
         return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
     },
-    body: JSON.stringify(horoscope)
+    body: JSON.stringify({
+      comments:comment
+    })
   })
     .then(getHoroscopes)
     }

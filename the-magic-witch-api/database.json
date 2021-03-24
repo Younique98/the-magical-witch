@@ -18,7 +18,7 @@
       "color": "Rose Pink",
       "lucky_number": "19",
       "lucky_time": "6am",
-      "comments": "My thoughts are ranging from excited , exhausted, then completely lost. ",
+      "comments": "test",
       "id": 1
     },
     {
@@ -31,39 +31,8 @@
       "color": "Rose Pink",
       "lucky_number": "19",
       "lucky_time": "6am",
-      "comments": "this is a test",
+      "comments": "thoughts are thoughts",
       "id": 2
-    },
-    {
-      "userId": 1,
-      "comments": "this is a test",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 24, 2021",
-      "description": "You're tempted to skip ahead of yourself, but that could bring disaster. Make sure that you're not pushing yourself too hard -- but in a few days, you ought to be able to handle almost anything!",
-      "compatibility": "Cancer",
-      "mood": "Careless",
-      "color": "Rose Pink",
-      "lucky_number": "19",
-      "lucky_time": "6am",
-      "comments": "test",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 24, 2021",
-      "description": "You're tempted to skip ahead of yourself, but that could bring disaster. Make sure that you're not pushing yourself too hard -- but in a few days, you ought to be able to handle almost anything!",
-      "compatibility": "Cancer",
-      "mood": "Careless",
-      "color": "Rose Pink",
-      "lucky_number": "19",
-      "lucky_time": "6am",
-      "comments": "I'm probably pushing myself to hard on today.",
-      "id": 5
     }
   ],
   "signs": [

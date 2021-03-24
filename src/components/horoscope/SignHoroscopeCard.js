@@ -3,7 +3,21 @@ import "./Horoscope.css"
 import { Link } from "react-router-dom"
 import {HoroscopeLocalContext} from "./HoroscopeLocalProvider"
 
+
 export const SignHoroscopeCard = ({horoscopes}) => {
+  const {updateHoroscope} = useContext(HoroscopeLocalContext)
+  const [horoscopeComment, setHoroscopeComment] = useState({
+    comments: "",
+  });
+  const handleControlledInputChange = (event) => {
+   const commentWritten = event.target.value;
+   setHoroscopeComment(commentWritten);
+  };
+
+const updateComment = () => {
+  updateHoroscope(horoscopeComment, horoscopes) 
+}
+
 
     return (
         <>
@@ -12,6 +26,16 @@ export const SignHoroscopeCard = ({horoscopes}) => {
         <div className="horoscope__description">Horoscope Reading: {horoscopes.description}</div>
         <div className="horoscope__description">Your Thoughts: {horoscopes.comments}</div>
         </div>
+        <input
+          type="text"
+          
+          placeholder="Type your thoughts about today's reading here"
+          value={horoscopeComment.comments}
+          onChange={handleControlledInputChange}
+        />
+        <button onClick={() => updateComment()}>
+          Update Your Comment
+        </button>
         </>
     )
 }
