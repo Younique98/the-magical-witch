@@ -27,6 +27,16 @@ export const HoroscopeLocalProvider = (props) => {
     }).then((response) => response.json());
   };
 
+    const updateHoroscope = horoscope => {
+        return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+    },
+    body: JSON.stringify(horoscope)
+  })
+    .then(getHoroscopes)
+    }
 //   const addHoroscope = (horoscope) => {
 //     return fetch("http://localhost:8088/horoscopes", {
 //       method: "POST",
@@ -58,6 +68,8 @@ export const HoroscopeLocalProvider = (props) => {
         getHoroscopeComment: getHoroscopeComment,
         getHoroscopeSavedId: getHoroscopeSavedId,
         saveHoroscope: saveHoroscope,
+        getHoroscopes: getHoroscopes, 
+        updateHoroscope: updateHoroscope
       }}
     >
       {props.children}
