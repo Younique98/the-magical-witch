@@ -8,18 +8,7 @@
     }
   ],
   "horoscopes": [
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 23, 2021",
-      "description": "You need to express your inner self today -- and you are much more in touch with it than usual. Nobody can deny what you say, and you might build a new bridge that means a lot to you.",
-      "compatibility": "Cancer",
-      "mood": "Touched",
-      "color": "Red",
-      "lucky_number": "98",
-      "lucky_time": "7pm",
-      "id": 1
-    }
+    
   ],
   "signs": [
     {
