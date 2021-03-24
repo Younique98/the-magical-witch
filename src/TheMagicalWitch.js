@@ -18,8 +18,12 @@ export const TheMagicalWitch = () => (
             </>
           )
         } else {
-          return <Redirect to="/login" />;
-        }
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+            </>
+          )}
       }}
     />
 

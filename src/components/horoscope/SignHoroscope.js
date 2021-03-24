@@ -14,12 +14,14 @@ export const SignHoroscope = () => {
     getTomorrow,
     getYesterday,
   } = useContext(HoroscopeContext);
-  const {getUsers} = useContext(UserContext)
+  const { getUsers } = useContext(UserContext);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const { saveHoroscope, updateHoroscope, getHoroscopeSavedId } = useContext(HoroscopeLocalContext);
-  
+  const { saveHoroscope, updateHoroscope, horoscope } = useContext(
+    HoroscopeLocalContext
+  );
+
   const { starsign } = useParams();
 
   const { getUserById } = useContext(UserContext);
@@ -28,42 +30,38 @@ export const SignHoroscope = () => {
   const [loggedUserInfo, setLoggedUserInfo] = useState({});
 
   const signNeeded = loggedUserInfo.sign;
-const [horoscopeComment, setHoroscopeComment] = useState({
-    comments: ""
-})
-const [ horoscope, setHoroscope ] = useState({
-          userId: loggedInUser,
-          date_range: "",
-          current_date: "",
-          description: "",
-          compatibility: "",
-          mood: "",
-          color: "",
-          lucky_number: "",
-          lucky_time: "",
-          comments: ""
-});
-
-  const handleControlledInputChange = (event) => {
- 
-    const newThought = { ...horoscope }
-    newThought[event.target.id] = event.target.value
-    const commentWritten = event.target.value
-    setHoroscope(newThought)
-    setHoroscopeComment(commentWritten)
-  }
   
+  const [horoscopeItem, setHoroscope] = useState({
+    userId: loggedInUser,
+    date_range: "",
+    current_date: "",
+    description: "",
+    compatibility: "",
+    mood: "",
+    color: "",
+    lucky_number: "",
+    lucky_time: "",
+    comments: "",
+  });
+  const [horoscopeComment, setHoroscopeComment] = useState({
+    comments: "",
+  });
+  const handleControlledInputChange = (event) => {
+    const newThought = { ...horoscopeItem };
+    newThought[event.target.id] = event.target.value;
+    const commentWritten = event.target.value;
+    setHoroscope(newThought);
+    setHoroscopeComment(commentWritten);
+  };
 
   const saveToday = () => {
-      
-      const comment = horoscope.comments
-      horoscopeToday.comments = comment
-      console.log("thought caught" + comment);
-   console.log(horoscopeToday)
-    getToday(signNeeded)
-   .then(() => {
-       if(horoscopeToday){
-           saveHoroscope({
+    const comment = horoscopeItem.comments;
+    horoscopeToday.comments = comment;
+    console.log("thought caught" + comment);
+    console.log(horoscopeToday);
+    getToday(signNeeded).then(() => {
+      if (horoscopeToday) {
+        saveHoroscope({
           userId: loggedInUser,
           date_range: horoscopeToday.date_range,
           current_date: horoscopeToday.current_date,
@@ -73,56 +71,64 @@ const [ horoscope, setHoroscope ] = useState({
           color: horoscopeToday.color,
           lucky_number: horoscopeToday.lucky_number,
           lucky_time: horoscopeToday.lucky_time,
-          comments: horoscopeComment
-       })
-       .then(() => history.push(`/horoscopeComments`))
-    }else {
-    console.log("saving today's horoscope" + horoscope.comment);
-    //PUT - update
-    const thoughtCaptured = { ...horoscope };
-    setHoroscope(thoughtCaptured);
-    saveHoroscope(horoscope)
-    .then(updateHoroscope({
-        id: horoscopeToday,
-        userId: loggedInUser,
-      date_range: horoscopeToday.date_range,
-      current_date: horoscopeToday.current_date,
-      description: horoscopeToday.description,
-      compatibility: horoscopeToday.compatibility,
-      mood: horoscopeToday.mood,
-      color: horoscopeToday.color,
-      lucky_number: horoscopeToday.lucky_number,
-      lucky_time: horoscopeToday.lucky_time,
-      comments: horoscopeComment
-    
-    }))
+          comments: horoscopeComment,
+        }).then(() => history.push(`/horoscopeComments`));
+      } else {
+        console.log("saving today's horoscope" + horoscopeItem.comment);
+        //PUT - update
+        const thoughtCaptured = { ...horoscopeItem };
+        setHoroscope(thoughtCaptured);
+        saveHoroscope(horoscopeItem)
           
-        .then(() => history.push(`/Horoscope`))
- 
-   }})}
-//   const saveTomorrow = () => {
-//     console.log("saving tomorrow's horoscope");
-//     saveHoroscope(() => {
-//       getTomorrow();
-//     });
-//   };
-//   const saveYesterday = () => {
-//     console.log("saving yesterday's horoscope");
-//     saveHoroscope(() => {
-//       getYesterday();
-//     });
-//   };
+
+          .then(() => history.push(`/Horoscope`));
+      }
+    });
+  };
+  //   const saveTomorrow = () => {
+  //     console.log("saving tomorrow's horoscope");
+  //     saveHoroscope(() => {
+  //       getTomorrow();
+  //     });
+  //   };
+  //   const saveYesterday = () => {
+  //     console.log("saving yesterday's horoscope");
+  //     saveHoroscope(() => {
+  //       getYesterday();
+  //     });
+  //   };
   useEffect(() => {
-    getToday(starsign)
-      getTomorrow(starsign)
-      getYesterday(starsign);
+    getToday(starsign);
+    getTomorrow(starsign);
+    getYesterday(starsign);
   }, []);
 
   useEffect(() => {
     getUserById(loggedInUser).then((res) => setLoggedUserInfo(res));
   }, []);
 
-  
+  const renderHoroscopeButton = () => {
+    if (loggedInUser) {
+      return (
+        <div>
+          <label> Write your thoughts on today's reading</label>,
+          <input
+          type="text"
+          id="comments"
+          placeholder="Type your thoughts about today's reading here"
+          value={horoscopeItem.comments}
+          onChange={handleControlledInputChange}
+        />
+        <button id="saveToday" onClick={() => saveToday()}>
+          Save Today's Horoscope
+        </button>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
   return (
     <section className="horoscopeValues">
       <section className="horoscopeToday">
@@ -139,12 +145,15 @@ const [ horoscope, setHoroscope ] = useState({
         placeholder="Write your thoughts on today's reading "
         onChange={handleControlledInputChange}
         value={horoscope.comments}/> */}
-       <label> Write your thoughts on today's reading</label>
-        <input type="text" id="comments" placeholder="Type your thoughts about today's reading here" value={horoscope.comments} onChange={handleControlledInputChange} />
-        
-        <button id="saveToday" onClick={() => saveToday()}>
-          Save Today's Horoscope
-        </button>
+        {/* <label> Write your thoughts on today's reading</label> */}
+        {/* <input
+          type="text"
+          id="comments"
+          placeholder="Type your thoughts about today's reading here"
+          value={horoscope.comments}
+          onChange={handleControlledInputChange}
+        /> */}
+        {renderHoroscopeButton()}
       </section>
       <section className="horoscopeYesterday">
         <p>Yesterday's Horoscope</p>
@@ -156,7 +165,7 @@ const [ horoscope, setHoroscope ] = useState({
         <p>Color: {horoscopeYesterday.color}</p>
         <p>Lucky Number: {horoscopeYesterday.lucky_number}</p>
         <p>Lucky Time: {horoscopeYesterday.lucky_time}</p>
-        
+
         {/* <button id="saveYesterday" onClick={() => saveYesterday()}>
           Save Yesterday's Horoscope
         </button> */}
