@@ -15,7 +15,7 @@ export const HoroscopeCard = ({ horoscope}) => {
                     {horoscope.sign}
                 </Link>
             </h3> */}
-            <div className="horoscope__title">{horoscope.date_range}</div>
+            <div className="horoscope__date_range">{horoscope.date_range}</div>
             <div className="horoscope__current_date">{horoscope.current_date}</div>
             <div className="horoscope__description">{horoscope.description}</div>
             <div className="horoscope__compatibity">{horoscope.compatibity}</div>

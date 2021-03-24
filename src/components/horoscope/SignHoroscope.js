@@ -75,6 +75,7 @@ const [ horoscope, setHoroscope ] = useState({
           lucky_time: horoscopeToday.lucky_time,
           comments: horoscopeComment
        })
+       .then(() => history.push(`/horoscopeComments`))
     }else {
     console.log("saving today's horoscope" + horoscope.comment);
     //PUT - update
@@ -138,9 +139,9 @@ const [ horoscope, setHoroscope ] = useState({
         placeholder="Write your thoughts on today's reading "
         onChange={handleControlledInputChange}
         value={horoscope.comments}/> */}
-       <label> Write your thoughts on today's reading
-        <input type="text" id="comments" value={horoscope.comments} onChange={handleControlledInputChange} />
-        </label>
+       <label> Write your thoughts on today's reading</label>
+        <input type="text" id="comments" placeholder="Type your thoughts about today's reading here" value={horoscope.comments} onChange={handleControlledInputChange} />
+        
         <button id="saveToday" onClick={() => saveToday()}>
           Save Today's Horoscope
         </button>

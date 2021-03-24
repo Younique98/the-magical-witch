@@ -13,6 +13,7 @@ import { SignProvider } from "./components/Signs/SignProvider";
 import { SignList } from "./components/Signs/SignList";
 import { SignHoroscope } from "./components/horoscope/SignHoroscope";
 import { HoroscopeLocalProvider } from "./components/horoscope/HoroscopeLocalProvider";
+import { SignHoroscopeList } from "./components/horoscope/SignHoroscopeList";
 
 export const ApplicationViews = () => {
   return (
@@ -60,8 +61,13 @@ export const ApplicationViews = () => {
           
           <Route exact path="/horoscope/:starsign">
             <SignHoroscope />
+            <SignHoroscopeList />
           </Route>
           
+          <Route exact path="/Horoscope/horoscopeComments">
+            
+          </Route>
+
         </UserProvider>
       </HoroscopeProvider>
       </HoroscopeLocalProvider>
