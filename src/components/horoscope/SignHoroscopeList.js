@@ -29,13 +29,16 @@ export const SignHoroscopeList = () => {
             {horoscope.current_date}
             {console.log(horoscope.description)}
             
-            
-            {/* {
+            <div className="signHoroscopeList__user">
+            {
                 horoscope.map(horoscopes => {
+                    console.log("what is a horoscope", horoscopes)
                     return <SignHoroscopeCard key={horoscopes.id} horoscopes={horoscopes} />
                 })
                 
-            } */}
+            }
+            
+            </div>
         </div>
         <section className="usersHoroscopes">
 

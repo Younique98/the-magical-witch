@@ -4,10 +4,10 @@ export const HoroscopeLocalContext = createContext();
 
 export const HoroscopeLocalProvider = (props) => {
   const [horoscopeComment, setHoroscopeComment] = useState({});
-  const [horoscope, setHoroscope] = useState({});
+  const [horoscope, setHoroscope] = useState([]);
 
   const getHoroscopes = () => {
-    debugger
+    
     return fetch(
       `http://localhost:8088/horoscopes?userId=${parseInt(
         sessionStorage.getItem("magicalWitch_user")
@@ -18,7 +18,7 @@ export const HoroscopeLocalProvider = (props) => {
   };
 
   const saveHoroscope = (horoscope) => {
-    debugger;
+    
     return fetch("http://localhost:8088/horoscopes", {
       method: "POST",
       headers: {
@@ -51,7 +51,7 @@ export const HoroscopeLocalProvider = (props) => {
 //   };
 
   const getHoroscopeComment = () => {
-    debugger
+    
     return fetch(`http://localhost:8088/horoscopes?userId=${parseInt(
       sessionStorage.getItem("magicalWitch_user")
     )}`)
