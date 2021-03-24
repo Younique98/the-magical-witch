@@ -41,17 +41,13 @@ export const HoroscopeLocalProvider = (props) => {
   })
     .then(getHoroscopes)
     }
-//   const addHoroscope = (horoscope) => {
-//     return fetch("http://localhost:8088/horoscopes", {
-//       method: "POST",
-//       header: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(horoscope),
-//     }).then(() =>
-//       getHoroscopeComment(parseInt(sessionStorage.getItem("magicalWitch_user")))
-//     );
-//   };
+
+    const deleteHoroscope = (comment, horoscope) =>  {
+      return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
+            method: "DELETE"
+        })
+            .then(getHoroscopes) 
+    }
 
   const getHoroscopeComment = () => {
     
@@ -77,7 +73,8 @@ export const HoroscopeLocalProvider = (props) => {
         saveHoroscope: saveHoroscope,
         getHoroscopes: getHoroscopes, 
         updateHoroscope: updateHoroscope,
-        horoscope: horoscope
+        horoscope: horoscope,
+        deleteHoroscope: deleteHoroscope
       }}
     >
       {props.children}

@@ -5,7 +5,7 @@ import {HoroscopeLocalContext} from "./HoroscopeLocalProvider"
 
 
 export const SignHoroscopeCard = ({horoscopes}) => {
-  const {updateHoroscope} = useContext(HoroscopeLocalContext)
+  const {updateHoroscope, deleteHoroscope} = useContext(HoroscopeLocalContext)
   const [horoscopeComment, setHoroscopeComment] = useState({
     comments: "",
   });
@@ -16,6 +16,9 @@ export const SignHoroscopeCard = ({horoscopes}) => {
 
 const updateComment = () => {
   updateHoroscope(horoscopeComment, horoscopes) 
+}
+const deleteHoroscopeComment = () => {
+  deleteHoroscope(horoscopeComment, horoscopes) 
 }
 
 
@@ -35,6 +38,9 @@ const updateComment = () => {
         />
         <button onClick={() => updateComment()}>
           Update Your Comment
+        </button>
+        <button onClick={() => deleteHoroscopeComment()}>
+          Delete Your Comment
         </button>
         </>
     )
