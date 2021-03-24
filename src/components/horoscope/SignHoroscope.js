@@ -55,7 +55,7 @@ const [ horoscope, setHoroscope ] = useState({
   
 
   const saveToday = () => {
-      debugger
+      
       const comment = horoscope.comments
       horoscopeToday.comments = comment
       console.log("thought caught" + comment);
