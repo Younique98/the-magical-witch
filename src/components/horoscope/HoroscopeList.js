@@ -39,12 +39,13 @@ export const HoroscopeList = () => {
     <>
     <section className="personalReadings">
       <section className="userHoroscope">
+        <h3 className="titleHoroscope">Horoscope Reading</h3>
         <p className="horoscopeDescrip">{horoscopeToday.description}</p>
         <button className="btnHoroscope" onClick={event => { event.preventDefault()
-        todayHoroscopeReading()}}>Press for Today's Horoscope</button>
+        todayHoroscopeReading()}}>Press for Horoscope Detail's</button>
       </section>
       <section className="userTarotReading">
-          <p className="headingTarot">Strength</p>
+          <h3 className="headingTarot">Strength</h3>
           <p className="descriptTarot">Put your fears to rest and develop a positive attitude and you'll reap richer rewards.</p>
           <img src="https://res.cloudinary.com/dwqyn2atu/image/upload/c_scale,h_212/v1616430844/chariot-6016921_640_sxhidi.jpg" className="placeholderTheChariot" alt="placeholderCard" />
           <button className="btnTarot" onClick={event => { event.preventDefault()
