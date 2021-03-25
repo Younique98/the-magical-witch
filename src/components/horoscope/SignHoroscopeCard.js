@@ -34,7 +34,7 @@ const deleteComment = () => {
         <input
           type="text"
           
-          placeholder="Type your thoughts about today's reading here"
+          placeholder="Type your thoughts here"
           value={horoscopeComment.comments}
           onChange={handleControlledInputChange}
         />

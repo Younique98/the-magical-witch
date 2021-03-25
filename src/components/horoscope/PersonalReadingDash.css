@@ -53,6 +53,8 @@ padding: 1.5em;
 
 .headingTarot {
     margin: 10px;
+    display: block;
+    margin-left: 140px;
 }
 
 .placeholderTheChariot {
@@ -60,7 +62,7 @@ padding: 1.5em;
     display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 140px;
 }
 .btnHoroscope {
     display: block;

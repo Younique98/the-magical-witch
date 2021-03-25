@@ -105,11 +105,11 @@ export const SignHoroscope = () => {
           <input
           type="text"
           id="comments"
-          placeholder="Type your thoughts about today's reading here"
+          placeholder="Type your thoughts here"
           value={horoscopeItem.comments}
           onChange={handleControlledInputChange}
         />
-        <button id="saveToday" onClick={() => saveToday()}>
+        <button className="savingTodaybtn" id="saveToday" onClick={() => saveToday()}>
           Save Today's Horoscope
         </button>
         </div>
@@ -121,8 +121,9 @@ export const SignHoroscope = () => {
 
   return (
     <section className="horoscopeValues">
+      <section className="allHoroscopes">
       <section className="horoscopeToday">
-        <p>Today's Horoscope</p>
+        <h3 className="todaySectionTitle">Today's Horoscope</h3>
         <p>Date Range: {horoscopeToday.date_range}</p>
         <p>Current Date: {horoscopeToday.current_date}</p>
         <p>Description: {horoscopeToday.description}</p>
@@ -134,8 +135,9 @@ export const SignHoroscope = () => {
         
         {renderHoroscopeButton()}
       </section>
+      
       <section className="horoscopeYesterday">
-        <p>Yesterday's Horoscope</p>
+        <h3 className="yesterdaySectionTitle">Yesterday's Horoscope</h3>
         <p>Date Range: {horoscopeYesterday.date_range}</p>
         <p>Current Date: {horoscopeYesterday.current_date}</p>
         <p>Description: {horoscopeYesterday.description}</p>
@@ -147,7 +149,7 @@ export const SignHoroscope = () => {
 
       </section>
       <section className="horoscopeTomorrow">
-        <p>Tomorrow's Horoscope</p>
+        <h3 className="tomorrowSectionTitle">Tomorrow's Horoscope</h3>
         <p>Date Range: {horoscopeTomorrow.date_range}</p>
         <p>Current Date: {horoscopeTomorrow.description}</p>
         <p>Description: {horoscopeTomorrow.current_date}</p>
@@ -157,6 +159,7 @@ export const SignHoroscope = () => {
         <p>Lucky Number: {horoscopeTomorrow.lucky_number}</p>
         <p>Lucky Time: {horoscopeTomorrow.lucky_time}</p>
         
+      </section>
       </section>
     </section>
   );

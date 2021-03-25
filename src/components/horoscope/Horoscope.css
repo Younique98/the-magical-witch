@@ -43,3 +43,38 @@ input[type=text]{
 .signHoroscopeCard {
     padding-top: 20px
 }
+.allHoroscopes{
+    display: flex;
+    flex:content;
+}
+
+.horoscopeToday{
+    border-style: solid ;
+    margin: 20px
+}
+.horoscopeYesterday{
+    border-style: solid ;
+    margin: 20px
+}
+.horoscopeTomorrow{
+    border-style: solid ;
+    margin: 20px
+}
+
+.savingTodaybtn{
+    display: block;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+.todaySectionTitle{
+    display: block;
+    margin-left: 170px;
+}
+.tomorrowSectionTitle{
+    display: block;
+    margin-left: 140px;
+}
+.yesterdaySectionTitle{
+    display: block;
+    margin-left: 130px;
+}

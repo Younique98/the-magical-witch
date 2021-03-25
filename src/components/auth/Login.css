@@ -23,7 +23,7 @@ font-size: 24px;
 /* Its good to see you!! Lets see what the universe has in store for you today!!! */
 .form--login{
 position: absolute;
-/* left: 20.34%; */
+left: 20.34%;
 right: 20.34%;
 top: 20.92%;
 bottom: 72.19%;
@@ -62,5 +62,6 @@ bottom: 41.18%;
 text-align: center;
 background: #FFFFFF;
 border-radius: 25px;
+font-size: 16px
 
 }
