@@ -32,3 +32,14 @@ input[type=text]{
   margin: 8px 0;
   box-sizing: border-box;
 }
+
+.signHoroscopeList__user{
+    position: absolute;
+    right: 20%;
+    left: 20%
+}
+
+
+.signHoroscopeCard {
+    padding-top: 20px
+}

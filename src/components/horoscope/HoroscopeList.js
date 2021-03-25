@@ -39,9 +39,10 @@ export const HoroscopeList = () => {
     <>
     <section className="personalReadings">
       <section className="userHoroscope">
+        <h3 className="titleHoroscope">Horoscope Reading</h3>
         <p className="horoscopeDescrip">{horoscopeToday.description}</p>
         <button className="btnHoroscope" onClick={event => { event.preventDefault()
-        todayHoroscopeReading()}}>Press for Today's Horoscope</button>
+        todayHoroscopeReading()}}>Press for Horoscope Detail's</button>
       </section>
       <section className="userTarotReading">
           <p className="headingTarot">Strength</p>
