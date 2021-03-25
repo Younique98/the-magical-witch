@@ -86,6 +86,72 @@ export const SignHoroscope = () => {
       }
     });
   };
+
+  const saveTomorrow = () => {
+    const comment = horoscopeItem.comments;
+    horoscopeToday.comments = comment;
+    console.log("thought caught" + comment);
+    console.log(horoscopeYesterday);
+    getYesterday(signNeeded).then(() => {
+      if (horoscopeYesterday) {
+        saveHoroscope({
+          userId: loggedInUser,
+          date_range: horoscopeYesterday.date_range,
+          current_date: horoscopeYesterday.current_date,
+          description: horoscopeYesterday.description,
+          compatibility: horoscopeYesterday.compatibility,
+          mood: horoscopeYesterday.mood,
+          color: horoscopeYesterday.color,
+          lucky_number: horoscopeYesterday.lucky_number,
+          lucky_time: horoscopeYesterday.lucky_time,
+          comments: horoscopeComment,
+        }
+        ).then(() => history.push(`/horoscopeComments`));
+      } else {
+        console.log("saving Yesterday's horoscope" + horoscopeItem.comment);
+        //PUT - update
+        const thoughtCaptured = { ...horoscopeItem };
+        setHoroscope(thoughtCaptured);
+        saveHoroscope(horoscopeItem)
+          
+
+          .then(() => history.push(`/Horoscope`));
+      }
+    });
+  };
+
+  const saveYesterday = () => {
+    const comment = horoscopeItem.comments;
+    horoscopeToday.comments = comment;
+    console.log("thought caught" + comment);
+    console.log(horoscopeYesterday);
+    getYesterday(signNeeded).then(() => {
+      if (horoscopeYesterday) {
+        saveHoroscope({
+          userId: loggedInUser,
+          date_range: horoscopeYesterday.date_range,
+          current_date: horoscopeYesterday.current_date,
+          description: horoscopeYesterday.description,
+          compatibility: horoscopeYesterday.compatibility,
+          mood: horoscopeYesterday.mood,
+          color: horoscopeYesterday.color,
+          lucky_number: horoscopeYesterday.lucky_number,
+          lucky_time: horoscopeYesterday.lucky_time,
+          comments: horoscopeComment,
+        }
+        ).then(() => history.push(`/horoscopeComments`));
+      } else {
+        console.log("saving Yesterday's horoscope" + horoscopeItem.comment);
+        //PUT - update
+        const thoughtCaptured = { ...horoscopeItem };
+        setHoroscope(thoughtCaptured);
+        saveHoroscope(horoscopeItem)
+          
+
+          .then(() => history.push(`/Horoscope`));
+      }
+    });
+  };
   
   useEffect(() => {
     getToday(starsign);
@@ -111,6 +177,50 @@ export const SignHoroscope = () => {
         />
         <button className="savingTodaybtn" id="saveToday" onClick={() => saveToday()}>
           Save Today's Horoscope
+        </button>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
+  const renderYesterdayHoroscopeButton = () => {
+    if (loggedInUser) {
+      return (
+        <div>
+          <label> Write your thoughts on yesterday's reading</label>,
+          <input
+          type="text"
+          id="comments"
+          placeholder="Type your thoughts here"
+          value={horoscopeItem.comments}
+          onChange={handleControlledInputChange}
+        />
+        <button className="savingTodaybtn" id="saveToday" onClick={() => saveYesterday()}>
+          Save Yesterday's Horoscope
+        </button>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
+  const renderTomorrowHoroscopeButton = () => {
+    if (loggedInUser) {
+      return (
+        <div>
+          <label> Write your thoughts on tomorrow's reading</label>,
+          <input
+          type="text"
+          id="comments"
+          placeholder="Type your thoughts here"
+          value={horoscopeItem.comments}
+          onChange={handleControlledInputChange}
+        />
+        <button className="savingTodaybtn" id="saveToday" onClick={() => saveTomorrow()}>
+          Save Tomorrow's Horoscope
         </button>
         </div>
       );
@@ -146,7 +256,7 @@ export const SignHoroscope = () => {
         <p>Color: {horoscopeYesterday.color}</p>
         <p>Lucky Number: {horoscopeYesterday.lucky_number}</p>
         <p>Lucky Time: {horoscopeYesterday.lucky_time}</p>
-
+        {renderYesterdayHoroscopeButton()}
       </section>
       <section className="horoscopeTomorrow">
         <h3 className="tomorrowSectionTitle">Tomorrow's Horoscope</h3>
@@ -158,7 +268,7 @@ export const SignHoroscope = () => {
         <p>Color: {horoscopeTomorrow.color}</p>
         <p>Lucky Number: {horoscopeTomorrow.lucky_number}</p>
         <p>Lucky Time: {horoscopeTomorrow.lucky_time}</p>
-        
+        {renderTomorrowHoroscopeButton()}
       </section>
       </section>
     </section>
