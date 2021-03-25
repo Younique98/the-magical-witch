@@ -14,10 +14,6 @@ export const SignHoroscopeList = () => {
         
         console.log("SignHoroscopeList: useEffect - getHoroscopes");
         getHoroscopes()
-        // .then(response => {
-        //     debugger
-        //     setHoroscope(response)
-        // })
         
     }, []);
     console.log(horoscope.current_date)
