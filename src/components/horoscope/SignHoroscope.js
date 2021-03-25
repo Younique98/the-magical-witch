@@ -72,7 +72,8 @@ export const SignHoroscope = () => {
           lucky_number: horoscopeToday.lucky_number,
           lucky_time: horoscopeToday.lucky_time,
           comments: horoscopeComment,
-        }).then(() => history.push(`/horoscopeComments`));
+        }
+        ).then(() => history.push(`/horoscopeComments`));
       } else {
         console.log("saving today's horoscope" + horoscopeItem.comment);
         //PUT - update
@@ -85,18 +86,7 @@ export const SignHoroscope = () => {
       }
     });
   };
-  //   const saveTomorrow = () => {
-  //     console.log("saving tomorrow's horoscope");
-  //     saveHoroscope(() => {
-  //       getTomorrow();
-  //     });
-  //   };
-  //   const saveYesterday = () => {
-  //     console.log("saving yesterday's horoscope");
-  //     saveHoroscope(() => {
-  //       getYesterday();
-  //     });
-  //   };
+  
   useEffect(() => {
     getToday(starsign);
     getTomorrow(starsign);
@@ -141,18 +131,7 @@ export const SignHoroscope = () => {
         <p>Color: {horoscopeToday.color}</p>
         <p>Lucky Number: {horoscopeToday.lucky_number}</p>
         <p>Lucky Time: {horoscopeToday.lucky_time}</p>
-        {/* <input type="text" id="comment" required autoFocus className="form-control"
-        placeholder="Write your thoughts on today's reading "
-        onChange={handleControlledInputChange}
-        value={horoscope.comments}/> */}
-        {/* <label> Write your thoughts on today's reading</label> */}
-        {/* <input
-          type="text"
-          id="comments"
-          placeholder="Type your thoughts about today's reading here"
-          value={horoscope.comments}
-          onChange={handleControlledInputChange}
-        /> */}
+        
         {renderHoroscopeButton()}
       </section>
       <section className="horoscopeYesterday">
@@ -166,9 +145,6 @@ export const SignHoroscope = () => {
         <p>Lucky Number: {horoscopeYesterday.lucky_number}</p>
         <p>Lucky Time: {horoscopeYesterday.lucky_time}</p>
 
-        {/* <button id="saveYesterday" onClick={() => saveYesterday()}>
-          Save Yesterday's Horoscope
-        </button> */}
       </section>
       <section className="horoscopeTomorrow">
         <p>Tomorrow's Horoscope</p>
@@ -180,9 +156,7 @@ export const SignHoroscope = () => {
         <p>Color: {horoscopeTomorrow.color}</p>
         <p>Lucky Number: {horoscopeTomorrow.lucky_number}</p>
         <p>Lucky Time: {horoscopeTomorrow.lucky_time}</p>
-        {/* <button id="saveTomorrow" onClick={() => saveTomorrow()}>
-          Save Tomorrow's Horoscope
-        </button> */}
+        
       </section>
     </section>
   );

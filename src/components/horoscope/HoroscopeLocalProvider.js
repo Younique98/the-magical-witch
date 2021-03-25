@@ -29,7 +29,7 @@ export const HoroscopeLocalProvider = (props) => {
   };
 
     const updateHoroscope = (comment, horoscope) => {
-      debugger
+     
         return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
             method: "PATCH",
             headers: {
@@ -42,10 +42,14 @@ export const HoroscopeLocalProvider = (props) => {
     .then(getHoroscopes)
     }
 
-    const deleteHoroscope = (comment, horoscope) =>  {
+    const deleteHoroscopeComment = (comment, horoscope) =>  {
       return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
-            method: "DELETE"
-        })
+            method: "DELETE",
+            
+            body: JSON.stringify({
+              comments:comment
+            })
+          })
             .then(getHoroscopes) 
     }
 
@@ -74,7 +78,7 @@ export const HoroscopeLocalProvider = (props) => {
         getHoroscopes: getHoroscopes, 
         updateHoroscope: updateHoroscope,
         horoscope: horoscope,
-        deleteHoroscope: deleteHoroscope
+        deleteHoroscopeComment: deleteHoroscopeComment
       }}
     >
       {props.children}

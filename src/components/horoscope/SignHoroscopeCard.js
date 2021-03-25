@@ -5,11 +5,13 @@ import {HoroscopeLocalContext} from "./HoroscopeLocalProvider"
 
 
 export const SignHoroscopeCard = ({horoscopes}) => {
-  const {updateHoroscope, deleteHoroscope} = useContext(HoroscopeLocalContext)
+  
+  const {updateHoroscope, deleteHoroscopeComment} = useContext(HoroscopeLocalContext)
   const [horoscopeComment, setHoroscopeComment] = useState({
     comments: "",
   });
   const handleControlledInputChange = (event) => {
+    
    const commentWritten = event.target.value;
    setHoroscopeComment(commentWritten);
   };
@@ -17,8 +19,8 @@ export const SignHoroscopeCard = ({horoscopes}) => {
 const updateComment = () => {
   updateHoroscope(horoscopeComment, horoscopes) 
 }
-const deleteHoroscopeComment = () => {
-  deleteHoroscope(horoscopeComment, horoscopes) 
+const deleteComment = () => {
+  deleteHoroscopeComment(horoscopeComment, horoscopes) 
 }
 
 
@@ -36,11 +38,12 @@ const deleteHoroscopeComment = () => {
           value={horoscopeComment.comments}
           onChange={handleControlledInputChange}
         />
+      
         <button onClick={() => updateComment()}>
-          Update Your Comment
+          Update Your Thought
         </button>
-        <button onClick={() => deleteHoroscopeComment()}>
-          Delete Your Comment
+        <button onClick={() => deleteComment()}>
+          Delete Horoscope
         </button>
         </>
     )
