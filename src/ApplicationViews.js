@@ -1,11 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { UserList } from "./components/users/UserList";
 import { UserProvider } from "./components/users/UserProvider";
 import { HoroscopeProvider } from "./components/horoscope/HoroscopeProvider";
 import { HoroscopeList } from "./components/horoscope/HoroscopeList";
-import { HoroscopeThoughtsForm } from "./components/horoscope/HoroscopeForm";
-import { HoroscopeDetail } from "./components/horoscope/HoroscopeDetail";
+
 // import { Card } from "./components/Container/Home"
 
 // import { HoroscopeChange } from "./components/Container/Change"
@@ -33,31 +31,11 @@ export const ApplicationViews = () => {
         <UserProvider>
           
             <Route path="/horoscope/create">
-              <HoroscopeThoughtsForm />
               <HoroscopeList />
             </Route>
 
             <Route exact path="/horoscope">
               <HoroscopeList />
-            </Route>
-
-            {/* <Route exact path="/horoscope/:starsign">
-            <SignHoroscope />
-          </Route> */}
-
-            {/* <Route exact path="/horoscope/horoscopeComments">
-              <SignHoroscopeCard />
-            </Route> */}
-
-            <Route
-              exact
-              path="/horoscopeComments/detail/:horoscopeCommentId(\d+)"
-            >
-              <HoroscopeDetail />
-            </Route>
-
-            <Route path="/horoscopeComments/edit/:horoscopeCommentId(\d+)">
-              <HoroscopeThoughtsForm />
             </Route>
           
           <Route exact path="/horoscope/:starsign">
