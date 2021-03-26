@@ -1,0 +1,190 @@
+.Tarots{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-basis: 28%
+}
+
+body{
+    font-size: 16px
+}
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.card_container {
+    border: 1px solid black;
+ width: 300px;
+ height: 400px;
+ margin: 0 auto;
+ margin-top: 56px;
+ /* border-radius: 25px; */
+ box-sizing: border-box;
+ box-shadow: -8px 9px 16px -3px gray;
+ background: #171314;
+}
+
+.card_background{
+    height: 360px;
+ margin: 20px 20px 0 20px;
+ border-top-left-radius: 6px;
+ border-top-right-radius: 6px;
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+ background-color: #bbb;
+ z-index: 0;
+}
+
+.card_frame{
+    z-index: 1;
+    position: relative;
+    height: 400px;
+    max-width: 97%;
+    left: 1%;
+    top: 0.5%;
+    left: 1.75%;
+    display: flex;
+    flex-direction: column; 
+}
+
+/* This area contains the border styling for each card */
+
+.frame-header,
+.frame_type_line {
+    border-bottom: 4px solid #a9a9a9;
+ border-left: 2px solid #a9a9a9;
+ border-top: 1px solid #fff;
+ border-right: 1px solid #fff;
+ display:block;
+ margin-bottom: 10px;
+ margin-top: 5px;
+
+}
+
+.frame_header,
+.frame_type_line {
+    box-shadow: 
+ 0 0 0 2px #171314,
+ 0 0 0 5px #26714A,
+ -3px 3px 2px 5px #171314;
+ margin-bottom: 7px;
+}
+.frame_header,
+.frame_type_line {
+    background: 
+ linear-gradient( 0deg, rgba(201, 216, 201, .3), rgba(201, 216, 209, .3) ), 
+ url(https://image.ibb.co/jKByZn/tile_bg_1.jpg); 
+ display: flex;
+ margin-top: 10px;
+ margin-left: 5px;
+ margin-right: 5px;
+ padding: 8px 10px 16px;
+ display: relative;
+ justify-content: space-between;
+ border-radius: 18px/40px;
+margin-top: 20px;
+margin-bottom: 15px
+}
+
+.frame_text_box_description{
+    box-shadow: 
+ 0 0 0 5px #26714A,
+ -3px 3px 2px 5px #171314;
+}
+
+/* Overflow */
+
+.frame_header,
+.frame_type_line,
+.frame_text_box_description {
+    overflow: hidden;
+}
+
+/* card details */
+.tarot__name,
+.tarot__type {
+    font-size: 1.3em;
+ margin-left: 10px;
+ align-self: baseline;
+ font-weight: 600;
+ text-align: center;
+}
+
+.frame_type_line{
+    margin-top: 0;
+}
+
+.frame_text_box_description{
+    margin: 0 10px;
+ background: #d3ded6;
+ background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around; 
+ padding: 50px 6px;
+ box-sizing: border-box;
+ font-size: 1.2em;
+}
+
+p {
+    margin-bottom: 5px;
+   }
+
+
+.tarot__meaning_up,
+.tarot__meaning_rev{
+    font-style: italic;
+ /* padding: 10px 0; */
+ font-size: 16px
+}
+
+.card_background{
+    margin: 8px 8px 0 8px;
+    background-color: #03ad91;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+.tarot__type {
+    display: block;
+    font-size: 1.1em;
+    margin-top: 0px;
+    color: black
+}
+
+.tarot__meaning_up{
+    display:block;
+    margin-top: 10px;
+    font-size: 15px;
+    color: black
+}
+
+.tarot__meaning_rev{
+    font-size: 16px;
+    color: #e2b97c;
+    text-align: center;
+}
+
+.frame_text_rev_box_description{
+    display: block;
+    margin-bottom: 35px;
+    margin-left: 10px;
+}
+
+.tarot__name{
+    color: #E2b97C
+}
+
+.card_frame{
+    display: relative;
+    margin-bottom: 50px;
+}
+
+.tarot__type{
+    display: block;
+    margin-left: 30px
+}
