@@ -18,7 +18,9 @@
       "color": "Copper",
       "lucky_number": "3",
       "lucky_time": "5am",
-      "comments": "Todays thoughts",
+      "comments": {
+        "comments": ""
+      },
       "id": 1
     },
     {
