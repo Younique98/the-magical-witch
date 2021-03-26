@@ -1,44 +1,39 @@
-import React, {useContext, useEffect, useState} from "react";
-import {HoroscopeLocalContext} from "./HoroscopeLocalProvider"
-import {SignHoroscopeCard} from "./SignHoroscopeCard"
+import React, { useContext, useEffect} from "react";
+import { HoroscopeLocalContext } from "./HoroscopeLocalProvider";
+import { SignHoroscopeCard } from "./SignHoroscopeCard";
 import "./Horoscope.css";
-import { UserContext } from "../users/UserProvider";
-
 
 export const SignHoroscopeList = () => {
-    const {horoscope, getHoroscopes, getHoroscopeComment} = useContext(HoroscopeLocalContext)
-    const {horoscopeObj, setHoroscope} = useState({})
-    const {users, getUsers} = useContext(UserContext)
+  //access the global varibales within the local api to use in this component
+  const { horoscope, getHoroscopes } = useContext(HoroscopeLocalContext);
 
-    useEffect(() => {
-        
-        console.log("SignHoroscopeList: useEffect - getHoroscopes");
-        getHoroscopes()
-        
-    }, []);
-    console.log(horoscope.current_date)
-    return (
-        <>
-        <div className="horoscopes">
-            
-            {console.log("SignHoroscopeList: Render", horoscope)}
-            {horoscope.current_date}
-            {console.log(horoscope.description)}
-            
-            <div className="signHoroscopeList__user">
-            {
-                horoscope.map(horoscopes => {
-                    console.log("what is a horoscope", horoscopes)
-                    return <SignHoroscopeCard key={horoscopes.id} horoscopes={horoscopes} />
-                })
-                
-            }
-            
-            </div>
+  //we must grab the horoscopes of the logged in user only after render
+  useEffect(() => {
+    console.log("SignHoroscopeList: useEffect - getHoroscopes");
+    getHoroscopes();
+  }, []);
+
+  // 1. return the horoscope object and grab the data from that object
+  // 2. return the object and set it using a card
+  // 3. create key and value pairs to store the id and the horoscope object
+  // 4. render this in the aplican views to display on the DOM
+  return (
+    <>
+      <div className="horoscopes">
+        {console.log("SignHoroscopeList: Render", horoscope)}
+        {horoscope.current_date}
+        {console.log(horoscope.description)}
+
+        <div className="signHoroscopeList__user">
+          {horoscope.map((horoscopes) => {
+            console.log("what is a horoscope", horoscopes);
+            return (
+              <SignHoroscopeCard key={horoscopes.id} horoscopes={horoscopes} />
+            );
+          })}
         </div>
-        <section className="usersHoroscopes">
-
-        </section>
-        </>
-    )
-}
+      </div>
+      <section className="usersHoroscopes"></section>
+    </>
+  );
+};
