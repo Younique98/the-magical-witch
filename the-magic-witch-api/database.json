@@ -11,58 +11,6 @@
     {
       "userId": 1,
       "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 25, 2021",
-      "description": "You need to make sure that you're not perceived as selfish today -- but it may happen, even if your motives are pure and simple! Get your friends to tell you what's going on with them and see what you can do.",
-      "compatibility": "Virgo",
-      "mood": "Thoughtful",
-      "color": "Copper",
-      "lucky_number": "3",
-      "lucky_time": "5am",
-      "comments": "Todays thoughts",
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 25, 2021",
-      "description": "You need to make sure that you're not perceived as selfish today -- but it may happen, even if your motives are pure and simple! Get your friends to tell you what's going on with them and see what you can do.",
-      "compatibility": "Virgo",
-      "mood": "Thoughtful",
-      "color": "Copper",
-      "lucky_number": "3",
-      "lucky_time": "5am",
-      "comments": "Save horo",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 25, 2021",
-      "description": "You need to make sure that you're not perceived as selfish today -- but it may happen, even if your motives are pure and simple! Get your friends to tell you what's going on with them and see what you can do.",
-      "compatibility": "Virgo",
-      "mood": "Thoughtful",
-      "color": "Copper",
-      "lucky_number": "3",
-      "lucky_time": "5am",
-      "comments": "This is thoughtful",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 24, 2021",
-      "description": "You're tempted to skip ahead of yourself, but that could bring disaster. Make sure that you're not pushing yourself too hard -- but in a few days, you ought to be able to handle almost anything!",
-      "compatibility": "Cancer",
-      "mood": "Careless",
-      "color": "Rose Pink",
-      "lucky_number": "19",
-      "lucky_time": "6am",
-      "comments": "This is tomorrow's horoscope.",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "date_range": "Sep 23 - Oct 22",
       "current_date": "March 26, 2021",
       "description": "Try not to avoid the big issues today -- they certainly aren't avoiding you! It's a much better time for letting your subconscious mind wrestle with it all than for wandering away and pretending it's all good.",
       "compatibility": "Pisces",
@@ -70,8 +18,8 @@
       "color": "Silver",
       "lucky_number": "23",
       "lucky_time": "2am",
-      "comments": "I won't avoid anything today. ",
-      "id": 5
+      "comments": "This is an thought",
+      "id": 1
     }
   ],
   "signs": [

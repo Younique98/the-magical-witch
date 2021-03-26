@@ -54,9 +54,7 @@ export const SignHoroscope = () => {
   });
 
   //set the horoscopeComment to contain an empty string initially
-  const [horoscopeComment, setHoroscopeComment] = useState({
-    comments: "",
-  });
+  const [horoscopeComment, setHoroscopeComment] = useState("");
 
   // 1. take in an event and create an variable with the updated object
   // 2. grab the value from that new object and and set that to be the target id

@@ -34,6 +34,7 @@ export const HoroscopeLocalProvider = (props) => {
 
 // update the horoscope using PATCH. PATCH is a request that sets instructions on modifying the resource at a location or change its properties
   const updateHoroscope = (comment, horoscope) => {
+    debugger
     return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
       method: "PATCH",
       headers: {
