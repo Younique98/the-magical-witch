@@ -59,6 +59,19 @@
       "lucky_time": "6am",
       "comments": "This is tomorrow's horoscope.",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "date_range": "Sep 23 - Oct 22",
+      "current_date": "March 26, 2021",
+      "description": "Try not to avoid the big issues today -- they certainly aren't avoiding you! It's a much better time for letting your subconscious mind wrestle with it all than for wandering away and pretending it's all good.",
+      "compatibility": "Pisces",
+      "mood": "Responsible",
+      "color": "Silver",
+      "lucky_number": "23",
+      "lucky_time": "2am",
+      "comments": "I won't avoid anything today. ",
+      "id": 5
     }
   ],
   "signs": [
