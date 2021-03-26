@@ -13,11 +13,9 @@ export const TarotProvider = (props) => {
 
   // get the Tarots from the local host and set Tarots state using that data that came back
   const getTarots = () => {
-    return fetch(
-        `https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=10`
-        )
-        .then((res) => res.json())
-        .then(setTarots);
+    return fetch(`https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=10`)
+      .then((res) => res.json())
+      .then(setTarots);
   };
 
   // return the data that came back and set the object values to contain that data
