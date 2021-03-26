@@ -4,8 +4,10 @@ import { Link } from "react-router-dom"
 import "../horoscope/Horoscope.css"
 
 export const HoroscopeCard = ({ horoscope }) => (
-    <section className="horoscope">
+    <section className="horoscope"> 
+    
             <h3 className="horoscope__sign">
+                
                 <Link to={`/horoscopeText/detail/${horoscope.id}`}>
                     {horoscope.sign}
                 </Link>

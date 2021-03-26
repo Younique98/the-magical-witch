@@ -1,72 +1,71 @@
-body{
-    background-color: #F6F5F1
+body {
+  background-color: #f6f5f1;
 }
 
 .userHoroscope {
-width: 372px;
-height: 400px;
-background: #03AD91;
-border-radius: 25px;
+  width: 372px;
+  height: 400px;
+  background: #03ad91;
+  border-radius: 25px;
 }
 
 .userTarotReading {
-width: 372px;
-height: 400px;
-background: #03AD91;
-border-radius: 25px;
-
+  width: 372px;
+  height: 400px;
+  background: #03ad91;
+  border-radius: 25px;
 }
 
 .personalReadings {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-p{
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 19px;
-text-align: center;
-top: 100px;
-color: #000000;
+p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  top: 100px;
+  color: #000000;
 }
 
 .horoscopeDescrip {
-display: block;
-top: 70px;
-position:relative;
-width: 295px;
-height: 229px;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 19px;
-text-align: center;
-left: 40px;
-color: #000000;
-padding: 1.5em;
+  display: block;
+  top: 70px;
+  position: relative;
+  width: 295px;
+  height: 229px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  left: 40px;
+  color: #000000;
+  padding: 1.5em;
 }
 
 .headingTarot {
-    margin: 10px;
-    display: block;
-    margin-left: 140px;
+  margin: 10px;
+  display: block;
+  margin-left: 140px;
 }
 
 .placeholderTheChariot {
-    border-radius: 8px;
-    display: block;
+  border-radius: 8px;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 140px;
 }
 .btnHoroscope {
-    display: block;
-    background-color: #FFFFFF; /* Green */
+  display: block;
+  background-color: #ffffff; /* Green */
   border: none;
   color: black;
   text-decoration: none;
@@ -74,24 +73,24 @@ padding: 1.5em;
   border-radius: 100px;
   margin-left: auto;
   margin-right: auto;
-height: 50px;
-position: relative;
-top: 40px;
-left: 5px;
-width: 250px
+  height: 50px;
+  position: relative;
+  top: 40px;
+  left: 5px;
+  width: 250px;
 }
 
 .descriptTarot {
-    display: block;
-    position: relative;
-    width: 330px;
-    right: -20px;
-    top: -10px;
+  display: block;
+  position: relative;
+  width: 330px;
+  right: -20px;
+  top: -10px;
 }
 
 .btnTarot {
-    display: block;
-    background-color: #FFFFFF; /* Green */
+  display: block;
+  background-color: #ffffff; /* Green */
   border: none;
   color: black;
   text-decoration: none;
@@ -99,17 +98,17 @@ width: 250px
   border-radius: 100px;
   margin-left: auto;
   margin-right: auto;
-height: 50px;
-position: relative;
-top: 5px;
-right: 5px;
-width: 250px
+  height: 50px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  width: 250px;
 }
 
-.titleHoroscope{
+.titleHoroscope {
   display: block;
-    position: relative;
-    width: 330px;
-    right: -70px;
-    top: 40px;
+  position: relative;
+  width: 330px;
+  right: -70px;
+  top: 40px;
 }

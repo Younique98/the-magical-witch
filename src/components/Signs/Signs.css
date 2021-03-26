@@ -43,16 +43,13 @@
   text-align: center;
 }
 
-.h2, h2 {
+.h2,
+h2 {
   font-size: 30px;
   text-align: center;
 }
 
-/* p {
-  text-align: center;
-} */
-
-.signs{
+.signs {
   display: flex;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,13 +59,11 @@
 }
 
 .pickYourSign {
-  color: #E2B97C;
-  /* Pick your Sign */
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 47px;
-text-align: center;
-
+  color: #e2b97c;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 47px;
+  text-align: center;
 }

@@ -1,14 +1,18 @@
 import React, { useState, createContext, useContext } from "react";
-import { HoroscopeLocalContext } from "./HoroscopeLocalProvider";
 
 export const HoroscopeContext = createContext();
 
 export const HoroscopeProvider = (props) => {
+  //declare a state variable and set it to an object
   const [horoscopeToday, setHoroscopeToday] = useState({});
-  const [horoscopeYesterday, setHoroscopeYesterday] = useState({});
-  const [horoscopeTomorrow, setHoroscopeTomorrow] = useState({});
-  const { saveHoroscope } = useContext(HoroscopeLocalContext);
 
+  //the variable is called horoscopeYesterday and a function that updates it and sets it to an object
+  const [horoscopeYesterday, setHoroscopeYesterday] = useState({});
+
+  //the variable is called horoscopeTomorrow and a function that updates it and sets it to an object
+  const [horoscopeTomorrow, setHoroscopeTomorrow] = useState({});
+
+  //grab horoscope for yesterday from the api
   const getYesterday = (sign) => {
     return fetch(
       `https://aztro.sameerkumar.website?sign=${sign}&day=yesterday`,
@@ -23,6 +27,8 @@ export const HoroscopeProvider = (props) => {
       .then((res) => res.json())
       .then((res) => setHoroscopeYesterday(res));
   };
+
+  //grab today from the api pass it a sign using string interpolation
   const getToday = (sign) => {
     if (sign !== "") {
       return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`, {
@@ -36,10 +42,10 @@ export const HoroscopeProvider = (props) => {
           setHoroscopeToday(json);
         });
     }
-    // } else {
-    //   console.log("no sign, yet")
   };
 
+  //grab tomorrow from the api pass it a sign using string interpolation
+  //set the state variable using setHoroscopeTomorrow
   const getTomorrow = (sign) => {
     return fetch(
       `https://aztro.sameerkumar.website/?sign=${sign}&day=tomorrow`,
@@ -58,12 +64,12 @@ export const HoroscopeProvider = (props) => {
   return (
     <HoroscopeContext.Provider
       value={{
-        getYesterday: getYesterday,
-        getToday: getToday,
-        getTomorrow: getTomorrow,
-        horoscopeToday: horoscopeToday,
-        horoscopeTomorrow: horoscopeTomorrow,
-        horoscopeYesterday: horoscopeYesterday,
+        getYesterday,
+        getToday,
+        getTomorrow,
+        horoscopeToday,
+        horoscopeTomorrow,
+        horoscopeYesterday,
       }}
     >
       {props.children}
