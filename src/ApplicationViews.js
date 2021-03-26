@@ -3,16 +3,14 @@ import { Route } from "react-router-dom";
 import { UserProvider } from "./components/users/UserProvider";
 import { HoroscopeProvider } from "./components/horoscope/HoroscopeProvider";
 import { HoroscopeList } from "./components/horoscope/HoroscopeList";
-
-// import { Card } from "./components/Container/Home"
-
-// import { HoroscopeChange } from "./components/Container/Change"
 import { SignProvider } from "./components/Signs/SignProvider";
 import { SignList } from "./components/Signs/SignList";
 import { SignHoroscope } from "./components/horoscope/SignHoroscope";
 import { HoroscopeLocalProvider } from "./components/horoscope/HoroscopeLocalProvider";
 import { SignHoroscopeList } from "./components/horoscope/SignHoroscopeList";
-import { SignHoroscopeCard } from "./components/horoscope/SignHoroscopeCard";
+import {TarotList } from "./components/tarot/TarotList"
+import { TarotProvider } from "./components/tarot/TarotProvider"
+
 
 export const ApplicationViews = () => {
   return (
@@ -24,6 +22,12 @@ export const ApplicationViews = () => {
           <SignList />
         </Route>
       </SignProvider>
+
+      <TarotProvider>
+        <Route path="/tarot">
+        <TarotList />
+        </Route>
+         </TarotProvider>
 
       {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
      <HoroscopeLocalProvider>
@@ -39,8 +43,7 @@ export const ApplicationViews = () => {
             </Route>
           
           <Route exact path="/horoscope/:starsign">
-            <SignHoroscope />
-            
+            <SignHoroscope />   
           </Route>
           
           <Route exact path="/horoscopeComments">

@@ -41,7 +41,7 @@ export const HoroscopeList = () => {
     <>
       <section className="personalReadings">
         <section className="userHoroscope">
-          <h3 className="titleHoroscope">Horoscope Reading</h3>
+          <h3 className="titleHoroscope">Today's Horoscope Reading</h3>
           <p className="horoscopeDescrip">{horoscopeToday.description}</p>
           <button
             className="btnHoroscope"
