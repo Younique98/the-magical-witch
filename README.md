@@ -1,5 +1,6 @@
-![alt text](images/The Magical Witch Wireframe.png)
-![alt text](images/The Magical Witch.png)
+![Application wireframe](./images/The Magical Witch Wireframe.png)
+![ERD for App](./images/The Magical Witch.png)
+
 
 # The Magical Witch Horoscpe & Tarot Card 
 
