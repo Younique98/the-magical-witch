@@ -1,5 +1,6 @@
-![Application wireframe](./images/The Magical Witch Wireframe.png)
-![ERD for App](./images/The Magical Witch.png)
+![The Magical Witch](https://user-images.githubusercontent.com/18708698/112570729-dbb21980-8da3-11eb-9683-81e33f7e346d.png)
+![The Magical Witch Wireframe](https://user-images.githubusercontent.com/18708698/112570756-e2409100-8da3-11eb-8ef0-51945372cb3d.png)
+
 
 
 # The Magical Witch Horoscpe & Tarot Card 
