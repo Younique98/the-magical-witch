@@ -29,7 +29,7 @@ export const Login = () => {
         // The user id is saved under the key magicalWitch_user in session Storage. Change below if needed!
         sessionStorage.setItem("magicalWitch_user", exists.id);
         sessionStorage.setItem("magicalWitch_userName", exists.name);
-        // console.log(exists.name);
+
         history.push("/");
       } else {
         setExistDialog(true);

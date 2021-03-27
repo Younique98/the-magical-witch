@@ -9,7 +9,6 @@ export const SignHoroscopeList = () => {
 
   //we must grab the horoscopes of the logged in user only after render
   useEffect(() => {
-    console.log("SignHoroscopeList: useEffect - getHoroscopes");
     getHoroscopes();
   }, []);
 
@@ -20,13 +19,9 @@ export const SignHoroscopeList = () => {
   return (
     <>
       <div className="horoscopes">
-        {console.log("SignHoroscopeList: Render", horoscope)}
         {horoscope.current_date}
-        {console.log(horoscope.description)}
-
         <div className="signHoroscopeList__user">
           {horoscope.map((horoscopes) => {
-            console.log("what is a horoscope", horoscopes);
             return (
               <SignHoroscopeCard key={horoscopes.id} horoscopes={horoscopes} />
             );

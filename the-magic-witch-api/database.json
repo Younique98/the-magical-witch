@@ -5,21 +5,39 @@
       "name": "Erica",
       "email": "erica@dot.com",
       "sign": "libra"
+    },
+    {
+      "email": "erica@window.com",
+      "name": "Erica Th",
+      "id": 2
     }
   ],
   "horoscopes": [
     {
       "userId": 1,
       "date_range": "Sep 23 - Oct 22",
-      "current_date": "March 26, 2021",
-      "description": "Try not to avoid the big issues today -- they certainly aren't avoiding you! It's a much better time for letting your subconscious mind wrestle with it all than for wandering away and pretending it's all good.",
-      "compatibility": "Pisces",
-      "mood": "Responsible",
-      "color": "Silver",
-      "lucky_number": "23",
-      "lucky_time": "2am",
-      "comments": "This is an thought",
-      "id": 1
+      "current_date": "March 25, 2021",
+      "description": "You need to make sure that you're not perceived as selfish today -- but it may happen, even if your motives are pure and simple! Get your friends to tell you what's going on with them and see what you can do.",
+      "compatibility": "Virgo",
+      "mood": "Thoughtful",
+      "color": "Copper",
+      "lucky_number": "3",
+      "lucky_time": "5am",
+      "comments": "do today",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "date_range": "Sep 23 - Oct 22",
+      "current_date": "March 25, 2021",
+      "description": "You need to make sure that you're not perceived as selfish today -- but it may happen, even if your motives are pure and simple! Get your friends to tell you what's going on with them and see what you can do.",
+      "compatibility": "Virgo",
+      "mood": "Thoughtful",
+      "color": "Copper",
+      "lucky_number": "3",
+      "lucky_time": "5am",
+      "comments": "tomor",
+      "id": 3
     }
   ],
   "signs": [
