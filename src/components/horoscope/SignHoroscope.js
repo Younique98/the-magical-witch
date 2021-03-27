@@ -62,7 +62,7 @@ export const SignHoroscope = () => {
   // 4. then set the horoscope to contain the previously set variable of new thought
   // 5. set the state of the horoscope comment based on the value gotten from the id during the event
   const handleControlledInputChange = (event) => {
-    const newThought = { ...horoscopeItem };
+    const newThought = { ...horoscopeComment };
     newThought[event.target.id] = event.target.value;
     const commentWritten = event.target.value;
     setHoroscope(newThought);
@@ -74,8 +74,6 @@ export const SignHoroscope = () => {
   const saveToday = () => {
     const comment = horoscopeItem.comments;
     horoscopeToday.comments = comment;
-    console.log("thought caught" + comment);
-    console.log(horoscopeToday);
     getToday(signNeeded).then(() => {
       if (horoscopeToday) {
         saveHoroscope({
@@ -91,8 +89,6 @@ export const SignHoroscope = () => {
           comments: horoscopeComment,
         }).then(() => history.push(`/horoscopeComments`));
       } else {
-        console.log("saving today's horoscope" + horoscopeItem.comment);
-      
         const thoughtCaptured = { ...horoscopeItem };
         setHoroscope(thoughtCaptured);
         saveHoroscope(horoscopeItem).then(() => history.push(`/Horoscope`));
@@ -105,8 +101,6 @@ export const SignHoroscope = () => {
   const saveTomorrow = () => {
     const comment = horoscopeItem.comments;
     horoscopeToday.comments = comment;
-    console.log("thought caught" + comment);
-    console.log(horoscopeYesterday);
     getYesterday(signNeeded).then(() => {
       if (horoscopeYesterday) {
         saveHoroscope({
@@ -122,7 +116,6 @@ export const SignHoroscope = () => {
           comments: horoscopeComment,
         }).then(() => history.push(`/horoscopeComments`));
       } else {
-        console.log("saving Yesterday's horoscope" + horoscopeItem.comment);
         const thoughtCaptured = { ...horoscopeItem };
         setHoroscope(thoughtCaptured);
         saveHoroscope(horoscopeItem).then(() => history.push(`/Horoscope`));
@@ -136,8 +129,6 @@ export const SignHoroscope = () => {
   const saveYesterday = () => {
     const comment = horoscopeItem.comments;
     horoscopeToday.comments = comment;
-    console.log("thought caught" + comment);
-    console.log(horoscopeYesterday);
     getYesterday(signNeeded).then(() => {
       if (horoscopeYesterday) {
         saveHoroscope({
@@ -153,7 +144,6 @@ export const SignHoroscope = () => {
           comments: horoscopeComment,
         }).then(() => history.push(`/horoscopeComments`));
       } else {
-        console.log("saving Yesterday's horoscope" + horoscopeItem.comment);
         //PUT - update
         const thoughtCaptured = { ...horoscopeItem };
         setHoroscope(thoughtCaptured);
@@ -185,7 +175,7 @@ export const SignHoroscope = () => {
           <label> Write your thoughts on today's reading</label>,
           <input
             type="text"
-            id="comments"
+            id="commentsToday"
             placeholder="Type your thoughts here"
             value={horoscopeItem.comments}
             onChange={handleControlledInputChange}
@@ -212,14 +202,14 @@ export const SignHoroscope = () => {
           <label> Write your thoughts on yesterday's reading</label>,
           <input
             type="text"
-            id="comments"
+            id="commentsYesterday"
             placeholder="Type your thoughts here"
             value={horoscopeItem.comments}
             onChange={handleControlledInputChange}
           />
           <button
             className="savingTodaybtn"
-            id="saveToday"
+            id="saveYesterday"
             onClick={() => saveYesterday()}
           >
             Save Yesterday's Horoscope
@@ -239,14 +229,14 @@ export const SignHoroscope = () => {
           <label> Write your thoughts on tomorrow's reading</label>,
           <input
             type="text"
-            id="comments"
+            id="commentsTomorrow"
             placeholder="Type your thoughts here"
             value={horoscopeItem.comments}
             onChange={handleControlledInputChange}
           />
           <button
             className="savingTodaybtn"
-            id="saveToday"
+            id="saveTomorrow"
             onClick={() => saveTomorrow()}
           >
             Save Tomorrow's Horoscope

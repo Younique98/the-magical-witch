@@ -24,9 +24,6 @@ export const SignList = () => {
       </header>
       <div className="signs">
         {signs.map((sign) => {
-          {
-            console.log(sign);
-          }
           return <Sign key={sign.id} sign={sign} />;
         })}
       </div>

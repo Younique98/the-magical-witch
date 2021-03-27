@@ -21,7 +21,7 @@ export const HoroscopeLocalProvider = (props) => {
       .then((res) => res.json())
       .then(setHoroscope);
   };
-// save the horoscope to the local server
+  // save the horoscope to the local server
   const saveHoroscope = (horoscope) => {
     return fetch("http://localhost:8088/horoscopes", {
       method: "POST",
@@ -32,20 +32,17 @@ export const HoroscopeLocalProvider = (props) => {
     }).then((response) => response.json());
   };
 
-// update the horoscope using PATCH. PATCH is a request that sets instructions on modifying the resource at a location or change its properties
-  const updateHoroscope = (comment, horoscope) => {
-    debugger
+  const updateHoroscope = (horoscope, horoscopeComment) => {
     return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        comments: comment,
-      }),
-    }).then(getHoroscopes);
+      body: JSON.stringify(horoscopeComment),
+    }).then(() =>
+      getHoroscopes(parseInt(sessionStorage.getItem("magicalWitch_user")))
+    );
   };
-
   // delete the horoscope based on two parameters which are the comment and the horoscope itself. but only delete it based on the id
   const deleteHoroscopeComment = (comment, horoscope) => {
     return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
