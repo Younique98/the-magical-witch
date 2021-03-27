@@ -15,6 +15,7 @@ export const SignHoroscopeCard = ({ horoscopes }) => {
     comments: "",
   });
 
+  // this useEffect is watching the horoscopes obj
   useEffect(() => {
     setHoroscopeComment({
       comments: horoscopes.comments,
