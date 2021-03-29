@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Tarots.css";
 
 //take in the tarot object

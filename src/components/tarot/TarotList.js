@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { TarotContext } from "./TarotProvider";
 import { Tarot } from "./Tarot";
 import "./Tarots.css";

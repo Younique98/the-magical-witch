@@ -8,7 +8,7 @@ export const Register = () => {
     firstName: "",
     lastName: "",
     email: "",
-    sign: ""
+    sign: "",
   });
   const [conflictDialog, setConflictDialog] = useState(false);
 
@@ -39,9 +39,9 @@ export const Register = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            sign: registerUser.sign,
-            email: registerUser.email,
             name: `${registerUser.firstName} ${registerUser.lastName}`,
+            email: registerUser.email,
+            sign: registerUser.sign,
           }),
         })
           .then((res) => res.json())
@@ -74,7 +74,10 @@ export const Register = () => {
         <h1 className="h3 mb-3 font-weight-normal">
           Please Register for The Magical Witch
         </h1>
-        <img src="https://res.cloudinary.com/dwqyn2atu/image/upload/v1617033547/Screen_Shot_2021-03-29_at_8.56.41_AM_zr5jdu.png" alt="horoscope image"></img>
+        <img
+          src="https://res.cloudinary.com/dwqyn2atu/image/upload/v1617033547/Screen_Shot_2021-03-29_at_8.56.41_AM_zr5jdu.png"
+          alt="horoscope image"
+        ></img>
         <fieldset>
           <label htmlFor="firstName"> First Name </label>
           <input
@@ -116,21 +119,24 @@ export const Register = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="inputSign"> What is your Horoscope Sign? </label>
-          <p>*refer above for your sign*</p>
-          <input
-            type="sign"
-            name="sign"
-            id="sign"
-            className="form-control"
-            placeholder="Horoscope Sign"
-            required
-            value={registerUser.sign}
-            onChange={handleInputChange}
-          />
+          <label htmlFor="horoscopeSign">Choose your sign:</label>
+          <select name="sign" type="sign" id="sign" value={registerUser.sign} onChange={handleInputChange}>
+            <option value="aries">aries</option>
+            <option value="taurus">taurus</option>
+            <option value="gemini">gemini</option>
+            <option value="cancer">cancer</option>
+            <option value="leo">leo</option>
+            <option value="virgo">virgo</option>
+            <option value="libra">libra</option>
+            <option value="scorpio">scorpio</option>
+            <option value="sagittarius">sagittarius</option>
+            <option value="capricorn">capricorn</option>
+            <option value="aquarius">aquarius</option>
+            <option value="pisces">pisces</option>
+          </select>
         </fieldset>
         <fieldset>
-          <button type="submit"> Sign in </button>
+          <button type="submit"> Register </button>
         </fieldset>
       </form>
     </main>
