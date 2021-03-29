@@ -5,24 +5,6 @@
       "name": "Erica",
       "email": "erica@dot.com",
       "sign": "libra"
-    },
-    {
-      "email": "erica@window.com",
-      "name": "Erica Th",
-      "id": 2,
-      "sign": "scorpio"
-    },
-    {
-      "sign": "Scorpio",
-      "email": "you@dot.com",
-      "name": "Erica Taco",
-      "id": 3
-    },
-    {
-      "sign": "Capricorn",
-      "email": "road@dot.com",
-      "name": "Erica Last",
-      "id": 4
     }
   ],
   "horoscopes": [

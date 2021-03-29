@@ -11,7 +11,7 @@ export const Sign = ({ sign }) => {
   return (
     <section className="sign">
       <Link to={`horoscope/${sign.name}`.toLowerCase()}>
-        <img className="sign__image" src={sign.imageUrl} />
+        <img className="sign__image" src={sign.imageUrl} alt="horoscope sign images" />
       </Link>
       <h4 className="sign__name">Sign Name : {sign.name}</h4>
       <h4 className="sign__dateRange">Date Range : {sign.dateRange}</h4>
