@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import "./Login.css";
 
+// registration screen for user signup
 export const Register = () => {
   const [registerUser, setRegisterUser] = useState({
     firstName: "",
@@ -120,7 +121,13 @@ export const Register = () => {
         </fieldset>
         <fieldset>
           <label htmlFor="horoscopeSign">Choose your sign:</label>
-          <select name="sign" type="sign" id="sign" value={registerUser.sign} onChange={handleInputChange}>
+          <select
+            name="sign"
+            type="sign"
+            id="sign"
+            value={registerUser.sign}
+            onChange={handleInputChange}
+          >
             <option value="aries">aries</option>
             <option value="taurus">taurus</option>
             <option value="gemini">gemini</option>
