@@ -72,8 +72,9 @@ export const Register = () => {
 
       <form className="form--login" onSubmit={handleRegister}>
         <h1 className="h3 mb-3 font-weight-normal">
-          Please Register for Application Name
+          Please Register for The Magical Witch
         </h1>
+        <img src="https://res.cloudinary.com/dwqyn2atu/image/upload/v1617033547/Screen_Shot_2021-03-29_at_8.56.41_AM_zr5jdu.png" alt="horoscope image"></img>
         <fieldset>
           <label htmlFor="firstName"> First Name </label>
           <input
@@ -116,6 +117,7 @@ export const Register = () => {
         </fieldset>
         <fieldset>
           <label htmlFor="inputSign"> What is your Horoscope Sign? </label>
+          <p>*refer above for your sign*</p>
           <input
             type="sign"
             name="sign"
