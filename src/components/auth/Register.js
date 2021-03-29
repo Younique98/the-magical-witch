@@ -8,6 +8,7 @@ export const Register = () => {
     firstName: "",
     lastName: "",
     email: "",
+    sign: ""
   });
   const [conflictDialog, setConflictDialog] = useState(false);
 
@@ -38,6 +39,7 @@ export const Register = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            sign: registerUser.sign,
             email: registerUser.email,
             name: `${registerUser.firstName} ${registerUser.lastName}`,
           }),
@@ -109,6 +111,19 @@ export const Register = () => {
             placeholder="Email address"
             required
             value={registerUser.email}
+            onChange={handleInputChange}
+          />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="inputSign"> What is your Horoscope Sign? </label>
+          <input
+            type="sign"
+            name="sign"
+            id="sign"
+            className="form-control"
+            placeholder="Horoscope Sign"
+            required
+            value={registerUser.sign}
             onChange={handleInputChange}
           />
         </fieldset>
