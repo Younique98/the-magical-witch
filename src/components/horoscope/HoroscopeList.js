@@ -6,7 +6,7 @@ import { UserContext } from "../users/UserProvider";
 
 export const HoroscopeList = () => {
   // grab today, tomorrow, and yesterday from the horoscope api
-  const { getToday, horoscopeToday, getTomorrow, getYesterday } = useContext(
+  const { getToday, horoscopeToday, getTomorrow, getYesterday, horoscopeDefaultToday } = useContext(
     HoroscopeContext
   );
   const { getUserById } = useContext(UserContext);
@@ -42,7 +42,7 @@ export const HoroscopeList = () => {
       <section className="personalReadings">
         <section className="userHoroscope">
           <h3 className="titleHoroscope">Today's Horoscope Reading</h3>
-          <p className="horoscopeDescrip">{horoscopeToday.description}</p>
+          <p className="horoscopeDescrip">{horoscopeDefaultToday.description}</p>
           <button
             className="btnHoroscope"
             onClick={(event) => {
