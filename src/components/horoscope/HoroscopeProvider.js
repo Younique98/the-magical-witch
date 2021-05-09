@@ -5,6 +5,7 @@ export const HoroscopeContext = createContext();
 export const HoroscopeProvider = (props) => {
   //declare a state variable and set it to an object
   const [horoscopeToday, setHoroscopeToday] = useState({});
+  const [horoscopeDefaultToday, setHoroscopeDefaultToday] = useState({});
 
   //the variable is called horoscopeYesterday and a function that updates it and sets it to an object
   const [horoscopeYesterday, setHoroscopeYesterday] = useState({});
@@ -27,7 +28,18 @@ export const HoroscopeProvider = (props) => {
       .then((res) => res.json())
       .then((res) => setHoroscopeYesterday(res));
   };
-
+  const getTodayDefault = () => {
+      return fetch(`https://aztro.sameerkumar.website?sign=leo&day=today`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          setHoroscopeToday(json);
+        });
+  };
   //grab today from the api pass it a sign using string interpolation
   const getToday = (sign) => {
     if (sign !== "") {
@@ -70,6 +82,8 @@ export const HoroscopeProvider = (props) => {
         horoscopeToday,
         horoscopeTomorrow,
         horoscopeYesterday,
+        getTodayDefault,
+        horoscopeDefaultToday,
       }}
     >
       {props.children}
