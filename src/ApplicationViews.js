@@ -29,7 +29,7 @@ export const ApplicationViews = () => {
         </Route>
          </TarotProvider>
 
-      {/* Render the horoscope list when http://localhost:8088/horoscopes*/}
+      {/* Render the horoscope list when https://the-magical-witch-api.herokuapp.com/horoscopes*/}
      <HoroscopeLocalProvider>
         <HoroscopeProvider>
         <UserProvider>

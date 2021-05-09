@@ -13,7 +13,7 @@ export const SignProvider = (props) => {
 
   // get the signs from the local host and set signs state using that data that came back
   const getSigns = () => {
-    return fetch(`http://localhost:8088/signs`)
+    return fetch(`https://the-magical-witch-api.herokuapp.com/signs`)
       .then((res) => res.json())
       .then(setSigns);
   };
