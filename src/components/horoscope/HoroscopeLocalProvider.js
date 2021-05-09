@@ -14,7 +14,7 @@ export const HoroscopeLocalProvider = (props) => {
   //grab all the horosocpes of the signed in user
   const getHoroscopes = () => {
     return fetch(
-      `http://localhost:8088/horoscopes?userId=${parseInt(
+      `https://the-magical-witch-api.herokuapp.com/horoscopes?userId=${parseInt(
         sessionStorage.getItem("magicalWitch_user")
       )}`
     )
@@ -23,7 +23,7 @@ export const HoroscopeLocalProvider = (props) => {
   };
   // save the horoscope to the local server
   const saveHoroscope = (horoscope) => {
-    return fetch("http://localhost:8088/horoscopes", {
+    return fetch("https://the-magical-witch-api.herokuapp.com/horoscopes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export const HoroscopeLocalProvider = (props) => {
   };
 
   const updateHoroscope = (horoscope, horoscopeComment) => {
-    return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
+    return fetch(`https://the-magical-witch-api.herokuapp.com/horoscopes/${horoscope.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const HoroscopeLocalProvider = (props) => {
   };
   // delete the horoscope based on two parameters which are the comment and the horoscope itself. but only delete it based on the id
   const deleteHoroscopeComment = (comment, horoscope) => {
-    return fetch(`http://localhost:8088/horoscopes/${horoscope.id}`, {
+    return fetch(`https://the-magical-witch-api.herokuapp.com/horoscopes/${horoscope.id}`, {
       method: "DELETE",
 
       body: JSON.stringify({
@@ -57,7 +57,7 @@ export const HoroscopeLocalProvider = (props) => {
   //grab the sign in users thoughts and only that user based on their user id
   const getHoroscopeComment = () => {
     return fetch(
-      `http://localhost:8088/horoscopes?userId=${parseInt(
+      `https://the-magical-witch-api.herokuapp.com/horoscopes?userId=${parseInt(
         sessionStorage.getItem("magicalWitch_user")
       )}`
     )
@@ -67,7 +67,7 @@ export const HoroscopeLocalProvider = (props) => {
 
   // grab the horoscopes that have been saved to the local api based on the horoscopes id
   const getHoroscopeSavedId = (id) => {
-    return fetch(`http://localhost:8088/horoscopes/${id}`).then((res) =>
+    return fetch(`https://the-magical-witch-api.herokuapp.com/horoscopes/${id}`).then((res) =>
       res.json()
     );
   };

@@ -11,7 +11,7 @@ export const UserProvider = (props) => {
   //useState hook to define a variable that holds the state of the component,
   //and a function that updates it.
   const getUsers = () => {
-    return fetch("http://localhost:8088/users")
+    return fetch("https://the-magical-witch-api.herokuapp.com/users")
       .then((res) => res.json())
       .then(setUsers);
   };
@@ -19,7 +19,7 @@ export const UserProvider = (props) => {
   // grab the user by id
   // it listens for a number that is parseInt before being passed
   const getUserById = (userId) => {
-    return fetch(`http://localhost:8088/users/${userId}`).then((res) =>
+    return fetch(`https://the-magical-witch-api.herokuapp.com/users/${userId}`).then((res) =>
       res.json()
     );
   };
