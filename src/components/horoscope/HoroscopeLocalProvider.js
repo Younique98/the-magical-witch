@@ -10,17 +10,19 @@ export const HoroscopeLocalProvider = (props) => {
   const [horoscopeComment, setHoroscopeComment] = useState({});
   //the variable is called horoscope and a function that updates it and sets it to an array
   const [horoscope, setHoroscope] = useState([]);
+  const user = parseInt(sessionStorage.getItem("magicalWitch_user"));
 
   //grab all the horosocpes of the signed in user
   const getHoroscopes = () => {
-    return fetch(
-      `https://the-magical-witch-api.herokuapp.com/horoscopes?userId=${parseInt(
+    return fetch(`https://the-magical-witch-api.herokuapp.com/horoscopes?userId=${parseInt(
         sessionStorage.getItem("magicalWitch_user")
       )}`
     )
       .then((res) => res.json())
-      .then(setHoroscope);
-  };
+      .then(setHoroscope)
+    }
+  
+
   // save the horoscope to the local server
   const saveHoroscope = (horoscope) => {
     return fetch("https://the-magical-witch-api.herokuapp.com/horoscopes", {
