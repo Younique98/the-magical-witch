@@ -3,7 +3,10 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    flex-basis: 28%
+    flex-basis: 28%;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 20px;
 }
 
 body{

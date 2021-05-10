@@ -6,37 +6,51 @@ import { UserContext } from "../users/UserProvider";
 
 export const HoroscopeList = () => {
   // grab today, tomorrow, and yesterday from the horoscope api
-  const { getToday, horoscopeToday, getTomorrow, getYesterday, horoscopeDefaultToday } = useContext(
-    HoroscopeContext
-  );
+  const {
+    getToday,
+    getTodayDefault,
+    horoscopeToday,
+    getTomorrow,
+    getYesterday,
+    horoscopeDefaultToday,
+  } = useContext(HoroscopeContext);
   const { getUserById } = useContext(UserContext);
-
+console.log(getTodayDefault)
   // the user must be saved based on the sessionstorage userid for later grabbing the sign
   const loggedInUser = parseInt(sessionStorage.getItem("magicalWitch_user"));
   const [loggedUserInfo, setLoggedUserInfo] = useState({});
+  const [descriptionForUser, setUserSign] = useState([]);
   // store the user's sign in a variable to utilize throughout the component
   const signNeeded = loggedUserInfo.sign;
   const history = useHistory();
-
+  const defaultUserSign = "leo";
+  const defaultUserId = 1;
   // todayHoroscopeReading grabs the data for Today, tomorrow, and yesterday
   const todayHoroscopeReading = () => {
-    getToday(signNeeded)
-      .then(() => getTomorrow(signNeeded))
-      .then(() => getYesterday(signNeeded))
-      .then(history.push(`/horoscope/${signNeeded}`));
+    if (sessionStorage.getItem("magicalWitch_user")) {
+      getToday(signNeeded)
+        .then(() => getTomorrow(signNeeded))
+        .then(() => getYesterday(signNeeded))
+        .then(history.push(`/horoscope/${signNeeded}`));
+    } else {
+      getTodayDefault()
+        .then(() => getTomorrow(defaultUserSign))
+        .then(() => getYesterday(defaultUserSign))
+        .then(history.push(`/horoscope/${defaultUserSign}`));
+    }
   };
 
-  // grab the userinformation and store it in a variable to make it userSpecific
   useEffect(() => {
-    getUserById(loggedInUser).then((userInfo) => setLoggedUserInfo(userInfo));
+    getTodayDefault(defaultUserSign);
   }, []);
 
   // 1. grab the user's sign and grab today's horoscope based on that sign while watching out for the logged in user
   // 2. specifically grab today's horoscope only and display it for the user to read quickly
   // 3. This is currently a placeholder for the tarot reading stretch goal to come later in development
-  useEffect(() => {
-    getToday(loggedUserInfo.sign);
-  }, [loggedUserInfo]);
+  
+
+  
+
   return (
     <>
       <section className="personalReadings">
