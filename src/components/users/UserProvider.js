@@ -19,7 +19,7 @@ export const UserProvider = (props) => {
   // grab the user by id
   // it listens for a number that is parseInt before being passed
   const getUserById = (userId) => {
-    if (userId !== ""){
+    if (!!userId){
     return fetch(`https://the-magical-witch-api.herokuapp.com/users/${userId}`).then((res) =>
       res.json()
     );} else {

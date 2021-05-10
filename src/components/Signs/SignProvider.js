@@ -4,7 +4,7 @@ import React, { useState, createContext } from "react";
 
 export const SignContext = createContext();
 
-//This component gathers the horoscope data to use throughout Applicaiton
+//This component gathers the horoscope data to use throughout Application
 
 export const SignProvider = (props) => {
   //set the variable of signs using the setSigns function

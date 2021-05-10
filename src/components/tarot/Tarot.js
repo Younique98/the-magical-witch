@@ -12,7 +12,7 @@ export const Tarot = ({ tarot }) => {
       <div className="card_background">
         <div className="card_frame">
 
-        <div class="frame-header">
+        <div className="frame-header">
           <h4 className="tarot__name">Name : {tarot.name}</h4>
           </div>
 
