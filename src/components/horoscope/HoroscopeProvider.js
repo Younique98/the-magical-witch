@@ -42,7 +42,7 @@ export const HoroscopeProvider = (props) => {
   };
   //grab today from the api pass it a sign using string interpolation
   const getToday = (sign) => {
-    if (sign !== "") {
+    if (!!sign) {
       return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`, {
         method: "POST",
         headers: {
