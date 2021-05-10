@@ -34,7 +34,9 @@ console.log(getTodayDefault)
   }, []);
 
   const todayHoroscopeReading = () => {
-    if (sessionStorage.getItem("magicalWitch_user") !== "") {
+    debugger
+    if (!!sessionStorage.getItem("magicalWitch_user") ) {
+    
       getToday(loggedUserInfo.sign)
         .then(() => getTomorrow(loggedUserInfo.sign))
         .then(() => getYesterday(loggedUserInfo.sign))
