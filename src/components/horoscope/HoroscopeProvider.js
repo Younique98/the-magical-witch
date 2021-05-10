@@ -28,16 +28,16 @@ export const HoroscopeProvider = (props) => {
       .then((res) => res.json())
       .then((res) => setHoroscopeYesterday(res));
   };
-  const getTodayDefault = () => {
-      return fetch(`https://aztro.sameerkumar.website?sign=leo&day=today`, {
-        method: "POST",
+  const getTodayDefault = (sign) => {
+      return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`, {
+      method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-      })
-        .then((res) => res.json())
+      })  
+      .then((res) => res.json())
         .then((json) => {
-          setHoroscopeToday(json);
+          setHoroscopeDefaultToday(json);
         });
   };
   //grab today from the api pass it a sign using string interpolation
@@ -53,6 +53,18 @@ export const HoroscopeProvider = (props) => {
         .then((json) => {
           setHoroscopeToday(json);
         });
+    } else {
+      let sign = 'leo'
+      return fetch(`https://aztro.sameerkumar.website?sign=${sign}&day=today`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          setHoroscopeToday(json);
+        }); 
     }
   };
 

@@ -19,9 +19,13 @@ export const UserProvider = (props) => {
   // grab the user by id
   // it listens for a number that is parseInt before being passed
   const getUserById = (userId) => {
+    if (userId !== ""){
     return fetch(`https://the-magical-witch-api.herokuapp.com/users/${userId}`).then((res) =>
       res.json()
-    );
+    );} else {
+      return fetch(`https://the-magical-witch-api.herokuapp.com/users/1`).then((res) =>
+      res.json() )
+    }
   };
 
   //You return a context provider which has the `users` state, `getUsers` function,
