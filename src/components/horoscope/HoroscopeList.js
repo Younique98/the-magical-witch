@@ -26,12 +26,19 @@ console.log(getTodayDefault)
   const defaultUserSign = "leo";
   const defaultUserId = 1;
   // todayHoroscopeReading grabs the data for Today, tomorrow, and yesterday
+  useEffect(() => {
+    getUserById(loggedInUser)
+    .then((userInfo) => {
+      setLoggedUserInfo(userInfo);
+    });
+  }, []);
+
   const todayHoroscopeReading = () => {
-    if (sessionStorage.getItem("magicalWitch_user")) {
-      getToday(signNeeded)
-        .then(() => getTomorrow(signNeeded))
-        .then(() => getYesterday(signNeeded))
-        .then(history.push(`/horoscope/${signNeeded}`));
+    if (sessionStorage.getItem("magicalWitch_user") !== "") {
+      getToday(loggedUserInfo.sign)
+        .then(() => getTomorrow(loggedUserInfo.sign))
+        .then(() => getYesterday(loggedUserInfo.sign))
+        .then(history.push(`/horoscope/${loggedUserInfo.sign}`));
     } else {
       getTodayDefault()
         .then(() => getTomorrow(defaultUserSign))
@@ -43,6 +50,7 @@ console.log(getTodayDefault)
   useEffect(() => {
     getTodayDefault(defaultUserSign);
   }, []);
+
 
   // 1. grab the user's sign and grab today's horoscope based on that sign while watching out for the logged in user
   // 2. specifically grab today's horoscope only and display it for the user to read quickly
